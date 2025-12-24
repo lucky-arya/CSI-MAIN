@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearInterval(slideInterval);
     const currentTextLength = headlines[currentSlide].length;
     const totalAnimationTime = (currentTextLength * charSpeed) + imageTransitionDuration;
-    
+
     // Auto slide every 5 seconds (5000ms) for better viewing experience
     slideInterval = setInterval(nextSlide, 5000);
   }
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
   slides[0].classList.add('active');
   dots[0].classList.add('active');
   animateContent(0);
-  
+
   startSlideshow();
 });
 
@@ -355,18 +355,18 @@ function createFlags() {
         // Create wrapper div for flag and tooltip
         const flagItem = document.createElement("div");
         flagItem.className = "flag-item";
-        
+
         // Create flag image
         const img = document.createElement("img");
         img.src = `https://flagcdn.com/w40/${country.code}.png`;
         img.alt = `${country.name} Flag`;
         img.loading = "lazy";
-        
+
         // Create tooltip
         const tooltip = document.createElement("div");
         tooltip.className = "flag-tooltip";
         tooltip.textContent = country.name;
-        
+
         // Append elements
         flagItem.appendChild(img);
         flagItem.appendChild(tooltip);
@@ -423,23 +423,23 @@ async function loadLinkedInPosts() {
   const linkedinContainer = document.getElementById("linkedin-posts");
   const loadingState = document.getElementById("linkedin-loading");
   const errorState = document.getElementById("linkedin-error");
-  
+
   // Show loading state
   loadingState.style.display = "block";
   errorState.style.display = "none";
   linkedinContainer.innerHTML = "";
-  
+
   try {
     // Try PHP backend first
     let response = await fetch("linkedin-feed.php");
     let result;
-    
+
     if (response.ok) {
       result = await response.json();
     } else {
       throw new Error("PHP backend not available");
     }
-    
+
     if (result.success && result.data) {
       displayLinkedInPosts(result.data);
       loadingState.style.display = "none";
@@ -448,7 +448,7 @@ async function loadLinkedInPosts() {
     }
   } catch (error) {
     console.error("Error loading LinkedIn posts from PHP, trying fallback:", error);
-    
+
     // Fallback to mock JSON file
     try {
       const mockResponse = await fetch("linkedin-mock.json");
@@ -463,7 +463,7 @@ async function loadLinkedInPosts() {
     } catch (mockError) {
       console.error("Error loading mock data:", mockError);
     }
-    
+
     // If everything fails, show error
     loadingState.style.display = "none";
     errorState.style.display = "block";
@@ -472,7 +472,7 @@ async function loadLinkedInPosts() {
 
 function displayLinkedInPosts(posts) {
   const linkedinContainer = document.getElementById("linkedin-posts");
-  
+
   posts.forEach(post => {
     const postCard = document.createElement("div");
     postCard.className = "linkedin-post-card";
@@ -508,12 +508,12 @@ function displayLinkedInPosts(posts) {
         </div>
       </div>
     `;
-    
+
     // Add click handler to open LinkedIn post
     postCard.addEventListener('click', () => {
       window.open(post.url, '_blank');
     });
-    
+
     postCard.style.cursor = 'pointer';
     linkedinContainer.appendChild(postCard);
   });
@@ -548,121 +548,191 @@ fetch("activities.json")
 // Initialize LinkedIn posts when page loads
 document.addEventListener('DOMContentLoaded', () => {
   loadLinkedInPosts();
-  
+
   // Refresh LinkedIn posts every 5 minutes
   setInterval(loadLinkedInPosts, 5 * 60 * 1000);
 });
 
-const mediaData = {
-  news: [
-    {
-      title: "Cyber Awareness Webinar",
-      desc: "A deep dive into cybersecurity basics.",
-      yt: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-    {
-      title: "Advanced Threat Detection",
-      desc: "Learn how to identify cyber threats effectively.",
-      yt: "https://www.youtube.com/embed/ScMzIvxBSi4",
-    },
-    {
-      title: "Cyber Awareness Webinar",
-      desc: "A deep dive into cybersecurity basics.",
-      yt: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-    {
-      title: "Advanced Threat Detection",
-      desc: "Learn how to identify cyber threats effectively.",
-      yt: "https://www.youtube.com/embed/ScMzIvxBSi4",
-    },
-  ],
-  podcasts: [
-    {
-      title: "Staying Safe Online",
-      desc: "Tips for protecting your personal data.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-    {
-      title: "Cybersecurity Myths",
-      desc: "Debunking common security misconceptions.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-    {
-      title: "Staying Safe Online",
-      desc: "Tips for protecting your personal data.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-    {
-      title: "Cybersecurity Myths",
-      desc: "Debunking common security misconceptions.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-  ],
-  article: [
-    {
-      title: "Hackathon 2025",
-      desc: "Highlights from our latest event.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-    {
-      title: "Team Meet",
-      desc: "Our global community meet-up.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-    {
-      title: "Hackathon 2025",
-      desc: "Highlights from our latest event.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-    {
-      title: "Team Meet",
-      desc: "Our global community meet-up.",
-      img: "https://via.placeholder.com/300x180",
-      link: "#",
-    },
-  ],
-};
-const mediaGrid = document.getElementById("mediaGrid");
+// Media Section - Carousel with Auto-scroll and Arrow Keys
+let mediaData = {};
+let currentMediaType = 'news';
+let currentSlideIndex = 0;
+let mediaAutoScrollInterval = null;
+const AUTO_SCROLL_DELAY = 5000; // 5 seconds
+
+// Responsive cards per view based on screen width
+function getCardsPerView() {
+  const width = window.innerWidth;
+  if (width < 640) return 1;        // Mobile: 1 card
+  if (width < 1024) return 2;       // Tablet: 2 cards
+  return 3;                          // Desktop: 3 cards
+}
+
+// Fetch media data from JSON
+async function fetchMediaData() {
+  try {
+    const response = await fetch('media-data.json');
+    mediaData = await response.json();
+    loadMedia('news');
+  } catch (error) {
+    console.error('Error loading media data:', error);
+  }
+}
+
+const mediaTrack = document.getElementById("mediaTrack");
+const mediaCarousel = document.getElementById("mediaCarousel");
 const tabs = document.querySelectorAll(".media-tab");
+const leftArrow = document.getElementById("mediaCarouselLeft");
+const rightArrow = document.getElementById("mediaCarouselRight");
+const dotsContainer = document.getElementById("carouselDots");
+
+function createMediaCard(item, type) {
+  const card = document.createElement("div");
+  card.classList.add("media-card");
+
+  if (type === "news") {
+    card.innerHTML = `
+      <iframe src="${item.yt}" frameborder="0" allowfullscreen loading="lazy"></iframe>
+      <div class="media-content">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+    `;
+  } else {
+    card.innerHTML = `
+      <img src="${item.img}" alt="${item.title}" loading="lazy">
+      <div class="media-content">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        <a href="${item.link}" class="media-btn">${type === "article" ? "Read More" : "Listen Now"}</a>
+      </div>
+    `;
+  }
+  return card;
+}
+
+function updateCarouselDots(totalSlides) {
+  dotsContainer.innerHTML = '';
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-dot');
+    if (i === currentSlideIndex) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+}
+
+function updateArrowStates(totalSlides) {
+  leftArrow.disabled = currentSlideIndex === 0;
+  rightArrow.disabled = currentSlideIndex >= totalSlides - 1;
+}
+
+function goToSlide(index) {
+  const items = mediaData[currentMediaType];
+  const cardsPerView = getCardsPerView();
+  const totalSlides = Math.ceil(items.length / cardsPerView);
+  
+  if (index < 0) index = 0;
+  if (index >= totalSlides) index = totalSlides - 1;
+  
+  currentSlideIndex = index;
+  
+  const cardWidth = mediaTrack.querySelector('.media-card').offsetWidth;
+  const gap = 25; // Gap between cards
+  const offset = -(currentSlideIndex * cardsPerView * (cardWidth + gap));
+  
+  mediaTrack.style.transform = `translateX(${offset}px)`;
+  
+  // Update dots
+  document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlideIndex);
+  });
+  
+  updateArrowStates(totalSlides);
+}
+
+function nextSlide() {
+  const items = mediaData[currentMediaType];
+  const cardsPerView = getCardsPerView();
+  const totalSlides = Math.ceil(items.length / cardsPerView);
+  
+  if (currentSlideIndex < totalSlides - 1) {
+    goToSlide(currentSlideIndex + 1);
+  } else {
+    goToSlide(0); // Loop back to start
+  }
+}
+
+function prevSlide() {
+  if (currentSlideIndex > 0) {
+    goToSlide(currentSlideIndex - 1);
+  }
+}
+
+function startAutoScroll() {
+  stopAutoScroll(); // Clear any existing interval
+  mediaAutoScrollInterval = setInterval(nextSlide, AUTO_SCROLL_DELAY);
+}
+
+function stopAutoScroll() {
+  if (mediaAutoScrollInterval) {
+    clearInterval(mediaAutoScrollInterval);
+    mediaAutoScrollInterval = null;
+  }
+}
 
 function loadMedia(type) {
-  mediaGrid.innerHTML = "";
+  stopAutoScroll();
+  currentMediaType = type;
+  currentSlideIndex = 0;
+  mediaTrack.innerHTML = "";
+  
   setTimeout(() => {
-    mediaData[type].forEach((item, index) => {
-      const card = document.createElement("div");
-      card.classList.add("media-card");
-
-      if (type === "news") {
-        card.innerHTML = `
-          <iframe src="${item.yt}" frameborder="0" allowfullscreen></iframe>
-          <div class="media-content">
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-          </div>
-        `;
-      } else {
-        card.innerHTML = `
-          <img src="${item.img}" alt="${item.title}">
-          <div class="media-content">
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <a href="${item.link}" class="media-btn">${type === "article" ? "Read More" : "Listen Now"}</a>
-          </div>
-        `;
-      }
-      mediaGrid.appendChild(card);
-      setTimeout(() => card.classList.add("show"), index * 150);
+    const items = mediaData[type];
+    items.forEach((item) => {
+      const card = createMediaCard(item, type);
+      mediaTrack.appendChild(card);
     });
+    
+    // Calculate total slides needed based on current screen size
+    const cardsPerView = getCardsPerView();
+    const totalSlides = Math.ceil(items.length / cardsPerView);
+    
+    // Update dots and arrows
+    updateCarouselDots(totalSlides);
+    updateArrowStates(totalSlides);
+    
+    // Reset position
+    mediaTrack.style.transform = 'translateX(0)';
+    
+    // Animate cards in
+    setTimeout(() => {
+      document.querySelectorAll('.media-card').forEach((card, index) => {
+        setTimeout(() => card.classList.add('show'), index * 100);
+      });
+    }, 100);
+    
+    // Start auto-scroll
+    if (totalSlides > 1) {
+      startAutoScroll();
+    }
   }, 100);
 }
 
+// Arrow button events
+leftArrow.addEventListener('click', () => {
+  prevSlide();
+  stopAutoScroll(); // Stop auto-scroll on manual interaction
+  setTimeout(startAutoScroll, 10000); // Resume after 10 seconds
+});
+
+rightArrow.addEventListener('click', () => {
+  nextSlide();
+  stopAutoScroll();
+  setTimeout(startAutoScroll, 10000);
+});
+
+// Tab switching
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelector(".media-tab.active").classList.remove("active");
@@ -670,12 +740,67 @@ tabs.forEach((tab) => {
     loadMedia(tab.dataset.type);
   });
 });
+
+// Keyboard navigation (Arrow keys)
+document.addEventListener('keydown', (e) => {
+  // Only respond if the media section is in view
+  const mediaSection = document.querySelector('.media-section');
+  const rect = mediaSection.getBoundingClientRect();
+  const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+  if (!isInView) return;
+
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    prevSlide();
+    stopAutoScroll();
+    setTimeout(startAutoScroll, 3000);
+  } else if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    nextSlide();
+    stopAutoScroll();
+    setTimeout(startAutoScroll, 3000);
+  }
+});
+
+// Pause auto-scroll on hover
+if (mediaCarousel) {
+  mediaCarousel.addEventListener('mouseenter', stopAutoScroll);
+  mediaCarousel.addEventListener('mouseleave', startAutoScroll);
+}
+
+// Handle window resize - recalculate carousel on screen size change
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    if (Object.keys(mediaData).length > 0) {
+      const items = mediaData[currentMediaType];
+      const cardsPerView = getCardsPerView();
+      const totalSlides = Math.ceil(items.length / cardsPerView);
+      
+      // Reset to first slide if current slide is out of bounds
+      if (currentSlideIndex >= totalSlides) {
+        currentSlideIndex = 0;
+      }
+      
+      // Update UI
+      updateCarouselDots(totalSlides);
+      updateArrowStates(totalSlides);
+      goToSlide(currentSlideIndex);
+    }
+  }, 250);
+});
+
+// Initialize
+fetchMediaData();
+// Fallback rendering for media coverage if initMediaCoverage is not defined
 loadMedia("news");
-(function(){
-  function createCard(item){
+(function () {
+  function createCard(item) {
     const card = document.createElement('article');
     card.className = 'media-card';
-    if(item.image){
+    if (item.image) {
       const a = document.createElement('a');
       a.href = item.url || '#'; a.target = '_blank'; a.rel = 'noopener noreferrer';
       a.className = 'media-card-image';
@@ -683,71 +808,71 @@ loadMedia("news");
       a.appendChild(img); card.appendChild(a);
     }
     const body = document.createElement('div'); body.className = 'media-card-body';
-    if(item.date){ const t = document.createElement('time'); t.className='media-card-date'; t.textContent = item.date; body.appendChild(t); }
-    if(item.title){ const h = document.createElement('h3'); h.className='media-card-title'; const a = document.createElement('a'); a.href=item.url||'#'; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=item.title; h.appendChild(a); body.appendChild(h); }
-    if(item.excerpt){ const p = document.createElement('p'); p.className='media-card-excerpt'; p.textContent = item.excerpt; body.appendChild(p); }
-    if(item.source){ const m = document.createElement('div'); m.className='media-card-meta'; m.textContent = item.source; body.appendChild(m); }
+    if (item.date) { const t = document.createElement('time'); t.className = 'media-card-date'; t.textContent = item.date; body.appendChild(t); }
+    if (item.title) { const h = document.createElement('h3'); h.className = 'media-card-title'; const a = document.createElement('a'); a.href = item.url || '#'; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = item.title; h.appendChild(a); body.appendChild(h); }
+    if (item.excerpt) { const p = document.createElement('p'); p.className = 'media-card-excerpt'; p.textContent = item.excerpt; body.appendChild(p); }
+    if (item.source) { const m = document.createElement('div'); m.className = 'media-card-meta'; m.textContent = item.source; body.appendChild(m); }
     card.appendChild(body); return card;
   }
 
-  function buildSlider(type, items, title){
-    const wrapper = document.createElement('div'); wrapper.className='media-slider'; wrapper.dataset.type=type;
-    const h = document.createElement('h3'); h.className='media-slider-heading'; h.textContent = title || type; wrapper.appendChild(h);
-    const controls = document.createElement('div'); controls.className='slider-controls';
+  function buildSlider(type, items, title) {
+    const wrapper = document.createElement('div'); wrapper.className = 'media-slider'; wrapper.dataset.type = type;
+    const h = document.createElement('h3'); h.className = 'media-slider-heading'; h.textContent = title || type; wrapper.appendChild(h);
+    const controls = document.createElement('div'); controls.className = 'slider-controls';
     controls.innerHTML = '<button class="slider-prev" aria-label="Prev">&larr;</button><button class="slider-next" aria-label="Next">&rarr;</button>';
     wrapper.appendChild(controls);
-    const viewport = document.createElement('div'); viewport.className='slider-viewport';
-    const track = document.createElement('div'); track.className='slider-track';
-    items.forEach(it => { const slide = document.createElement('div'); slide.className='slider-item'; slide.appendChild(createCard(it)); track.appendChild(slide); });
+    const viewport = document.createElement('div'); viewport.className = 'slider-viewport';
+    const track = document.createElement('div'); track.className = 'slider-track';
+    items.forEach(it => { const slide = document.createElement('div'); slide.className = 'slider-item'; slide.appendChild(createCard(it)); track.appendChild(slide); });
     viewport.appendChild(track); wrapper.appendChild(viewport);
-    const dots = document.createElement('div'); dots.className='slider-dots';
-    items.forEach((_,i)=>{ const d=document.createElement('button'); d.className='slider-dot'; d.dataset.index=i; dots.appendChild(d); });
+    const dots = document.createElement('div'); dots.className = 'slider-dots';
+    items.forEach((_, i) => { const d = document.createElement('button'); d.className = 'slider-dot'; d.dataset.index = i; dots.appendChild(d); });
     wrapper.appendChild(dots);
     return wrapper;
   }
 
-  function setupSlider(s){
+  function setupSlider(s) {
     const track = s.querySelector('.slider-track');
     const items = Array.from(s.querySelectorAll('.slider-item'));
     const prev = s.querySelector('.slider-prev');
     const next = s.querySelector('.slider-next');
     const dots = Array.from(s.querySelectorAll('.slider-dot'));
-    let idx = 0; let visible=1;
-    function calcVisible(){ const w=window.innerWidth; if(w>=1200) visible=3; else if(w>=900) visible=2; else visible=1; }
-    function layout(){ const vp = s.querySelector('.slider-viewport'); const w = vp.clientWidth; calcVisible(); items.forEach(it=>it.style.width = (w/visible) + 'px'); track.style.width = (items.length * 100 / visible) + '%'; update(); }
-    function update(){ const percent = (idx * 100) / visible; track.style.transform = 'translateX(-' + percent + '%)'; dots.forEach(d=>d.classList.remove('active')); if(dots[idx]) dots[idx].classList.add('active'); prev.disabled = idx === 0; next.disabled = idx >= items.length - visible; }
-    prev.addEventListener('click', ()=>{ idx = Math.max(0, idx-1); update(); });
-    next.addEventListener('click', ()=>{ idx = Math.min(items.length - visible, idx+1); update(); });
-    dots.forEach(d=>d.addEventListener('click', e=>{ idx = Number(e.currentTarget.dataset.index); update(); }));
+    let idx = 0; let visible = 1;
+    function calcVisible() { const w = window.innerWidth; if (w >= 1200) visible = 3; else if (w >= 900) visible = 2; else visible = 1; }
+    function layout() { const vp = s.querySelector('.slider-viewport'); const w = vp.clientWidth; calcVisible(); items.forEach(it => it.style.width = (w / visible) + 'px'); track.style.width = (items.length * 100 / visible) + '%'; update(); }
+    function update() { const percent = (idx * 100) / visible; track.style.transform = 'translateX(-' + percent + '%)'; dots.forEach(d => d.classList.remove('active')); if (dots[idx]) dots[idx].classList.add('active'); prev.disabled = idx === 0; next.disabled = idx >= items.length - visible; }
+    prev.addEventListener('click', () => { idx = Math.max(0, idx - 1); update(); });
+    next.addEventListener('click', () => { idx = Math.min(items.length - visible, idx + 1); update(); });
+    dots.forEach(d => d.addEventListener('click', e => { idx = Number(e.currentTarget.dataset.index); update(); }));
     // simple swipe
-    let startX=0, down=false;
-    track.addEventListener('pointerdown', e=>{ down=true; startX=e.clientX; track.setPointerCapture(e.pointerId); track.style.transition='none'; });
-    track.addEventListener('pointerup', e=>{ if(!down) return; down=false; track.style.transition=''; const dx = e.clientX - startX; if(dx>40) prev.click(); else if(dx<-40) next.click(); });
-    track.addEventListener('pointercancel', ()=>{ down=false; track.style.transition=''; });
+    let startX = 0, down = false;
+    track.addEventListener('pointerdown', e => { down = true; startX = e.clientX; track.setPointerCapture(e.pointerId); track.style.transition = 'none'; });
+    track.addEventListener('pointerup', e => { if (!down) return; down = false; track.style.transition = ''; const dx = e.clientX - startX; if (dx > 40) prev.click(); else if (dx < -40) next.click(); });
+    track.addEventListener('pointercancel', () => { down = false; track.style.transition = ''; });
     window.addEventListener('resize', layout); layout();
   }
 
   // render fallback if initMediaCoverage missing
-  window.renderMediaFallback = function(mediaData){
-    const grid = document.getElementById('mediaGrid'); if(!grid) return;
+  window.renderMediaFallback = function (mediaData) {
+    const grid = document.getElementById('mediaGrid'); if (!grid) return;
     grid.innerHTML = '';
-    for(const key of Object.keys(mediaData)){
-      const arr = mediaData[key]; if(!arr || !arr.length) continue;
+    for (const key of Object.keys(mediaData)) {
+      const arr = mediaData[key]; if (!arr || !arr.length) continue;
       const title = key.charAt(0).toUpperCase() + key.slice(1);
       const sec = buildSlider(key, arr, title); grid.appendChild(sec);
     }
     // wire tabs like earlier
     const tabs = Array.from(document.querySelectorAll('.media-tab'));
-    function activate(t){
-      tabs.forEach(b=>b.classList.toggle('active', b.dataset.type===t));
+    function activate(t) {
+      tabs.forEach(b => b.classList.toggle('active', b.dataset.type === t));
       const sliders = Array.from(grid.querySelectorAll('.media-slider'));
-      sliders.forEach(s=> s.style.display = s.dataset.type === t ? '' : 'none');
-      const active = grid.querySelector('.media-slider[data-type="'+t+'"]');
-      if(active && !active.dataset.init){ setupSlider(active); active.dataset.init='1'; }
+      sliders.forEach(s => s.style.display = s.dataset.type === t ? '' : 'none');
+      const active = grid.querySelector('.media-slider[data-type="' + t + '"]');
+      if (active && !active.dataset.init) { setupSlider(active); active.dataset.init = '1'; }
     }
-    tabs.forEach(b => b.addEventListener('click', ()=> activate(b.dataset.type)));
-    const activeTab = tabs.find(t=>t.classList.contains('active'));
-    if(activeTab) activate(activeTab.dataset.type); else if(tabs[0]) activate(tabs[0].dataset.type);
+    tabs.forEach(b => b.addEventListener('click', () => activate(b.dataset.type)));
+    const activeTab = tabs.find(t => t.classList.contains('active'));
+    if (activeTab) activate(activeTab.dataset.type); else if (tabs[0]) activate(tabs[0].dataset.type);
   };
 })();
 
@@ -829,7 +954,7 @@ helpItems.forEach((item) => {
 let turnstileVerified = false;
 
 // Turnstile callback function
-window.onTurnstileSuccess = function(token) {
+window.onTurnstileSuccess = function (token) {
   turnstileVerified = true;
   document.getElementById('submitBtn').disabled = false;
   document.getElementById('submitBtn').style.opacity = '1';
@@ -837,34 +962,34 @@ window.onTurnstileSuccess = function(token) {
 };
 
 // Form submission handler
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const contactForm = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
-  
+
   if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
-      
+
       if (!turnstileVerified) {
         showMessage('Please complete the CAPTCHA verification.', 'error');
         return;
       }
-      
+
       // Disable submit button and show loading state
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
       submitBtn.style.opacity = '0.7';
-      
+
       try {
         const formData = new FormData(contactForm);
-        
+
         const response = await fetch('submit-contact.php', {
           method: 'POST',
           body: formData
         });
-        
+
         const result = await response.text();
-        
+
         if (response.ok && result === 'Success') {
           showMessage('Thank you for your message! We will get back to you soon.', 'success');
           contactForm.reset();
@@ -880,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Form submission error:', error);
         showMessage('An error occurred while sending your message. Please try again.', 'error');
       }
-      
+
       // Re-enable submit button
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
@@ -896,12 +1021,12 @@ function showMessage(message, type) {
   if (existingMessage) {
     existingMessage.remove();
   }
-  
+
   // Create new message element
   const messageDiv = document.createElement('div');
   messageDiv.className = `form-message ${type}`;
   messageDiv.textContent = message;
-  
+
   // Add styles
   messageDiv.style.cssText = `
     padding: 15px;
@@ -910,16 +1035,16 @@ function showMessage(message, type) {
     font-weight: 500;
     text-align: center;
     transition: all 0.3s ease;
-    ${type === 'success' 
-      ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' 
+    ${type === 'success'
+      ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;'
       : 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
     }
   `;
-  
+
   // Insert message after the form
   const contactForm = document.getElementById('contactForm');
   contactForm.parentNode.insertBefore(messageDiv, contactForm.nextSibling);
-  
+
   // Auto-remove success messages after 5 seconds
   if (type === 'success') {
     setTimeout(() => {
@@ -938,21 +1063,21 @@ function showMessage(message, type) {
 // Goal Section Sequential Animation
 document.addEventListener('DOMContentLoaded', () => {
   const goals = document.querySelectorAll('.goal');
-  
+
   const goalObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const goal = entry.target;
-        
+
         // Get the delay based on step class
         let delay = 0;
         if (goal.classList.contains('step-2')) delay = 300;
         if (goal.classList.contains('step-3')) delay = 600;
-        
+
         setTimeout(() => {
           goal.classList.add('animate');
         }, delay);
-        
+
         goalObserver.unobserve(goal);
       }
     });
@@ -960,12 +1085,12 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
   });
-  
+
   goals.forEach(goal => goalObserver.observe(goal));
-  
+
   // About Section Sequential Animation
   const aboutSection = document.querySelector('.about-section');
-  
+
   if (aboutSection) {
     const aboutObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -974,13 +1099,13 @@ document.addEventListener('DOMContentLoaded', () => {
           const h1 = aboutSection.querySelector('h1');
           const paragraphs = aboutSection.querySelectorAll('p');
           const button = aboutSection.querySelector('.minimal-btn');
-          
+
           // Trigger animations
           if (h2) h2.classList.add('animate');
           if (h1) h1.classList.add('animate');
           paragraphs.forEach(p => p.classList.add('animate'));
           if (button) button.classList.add('animate');
-          
+
           aboutObserver.unobserve(aboutSection);
         }
       });
@@ -988,7 +1113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       threshold: 0.1,
       rootMargin: '0px 0px 0px 0px'
     });
-    
+
     aboutObserver.observe(aboutSection);
   }
 });

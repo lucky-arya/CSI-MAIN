@@ -1,0 +1,155 @@
+{
+  "news": [
+    {
+      "title": "Cyber Security News Update",
+      "desc": "Latest developments in cybersecurity and digital safety.",
+      "yt": "https://www.youtube.com/embed/uWUR91z61ps"
+    },
+    {
+      "title": "Cybersecurity Awareness",
+      "desc": "Important insights on protecting digital assets.",
+      "yt": "https://www.youtube.com/embed/my5CPZ3gXGM"
+    },
+    {
+      "title": "Digital Security Brief",
+      "desc": "Stay informed about current cyber threats.",
+      "yt": "https://www.youtube.com/embed/L1rIPCGFfCw"
+    },
+    {
+      "title": "Cyber Safety Update",
+      "desc": "Essential updates on online security measures.",
+      "yt": "https://www.youtube.com/embed/SpQodYS1G9w"
+    },
+    {
+      "title": "Information Security News",
+      "desc": "Critical cybersecurity information and trends.",
+      "yt": "https://www.youtube.com/embed/buO4YpTbQ6s"
+    },
+    {
+      "title": "Cyber Defense Strategies",
+      "desc": "Learn effective cyber defense techniques.",
+      "yt": "https://www.youtube.com/embed/Requpf56EIE"
+    },
+    {
+      "title": "Digital Protection Guide",
+      "desc": "Comprehensive guide to digital security.",
+      "yt": "https://www.youtube.com/embed/s_V5LjYqHek"
+    },
+    {
+      "title": "Cybersecurity Insights",
+      "desc": "Expert analysis on cybersecurity challenges.",
+      "yt": "https://www.youtube.com/embed/D9tn2kM9olg"
+    },
+    {
+      "title": "Network Security Update",
+      "desc": "Latest network security practices and tips.",
+      "yt": "https://www.youtube.com/embed/tqoH0WeILPM"
+    },
+    {
+      "title": "Cyber Threat Analysis",
+      "desc": "Understanding and mitigating cyber threats.",
+      "yt": "https://www.youtube.com/embed/vTZ2Dm8SBjw"
+    },
+    {
+      "title": "Data Protection News",
+      "desc": "Important updates on data privacy and protection.",
+      "yt": "https://www.youtube.com/embed/NonRWQgCiZI"
+    },
+    {
+      "title": "Security Awareness Training",
+      "desc": "Building a security-conscious organization.",
+      "yt": "https://www.youtube.com/embed/x_H3b24bwsI"
+    },
+    {
+      "title": "Cyber Crime Prevention",
+      "desc": "Strategies to prevent and combat cybercrime.",
+      "yt": "https://www.youtube.com/embed/v4U0FRyU3U4"
+    },
+    {
+      "title": "Online Safety Guidelines",
+      "desc": "Best practices for staying safe online.",
+      "yt": "https://www.youtube.com/embed/aO-RXsmCusI"
+    },
+    {
+      "title": "Cybersecurity Best Practices",
+      "desc": "Essential cybersecurity tips and recommendations.",
+      "yt": "https://www.youtube.com/embed/H2lCE0xwbRM"
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Staying Safe Online",
+      "desc": "Tips for protecting your personal data.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Cybersecurity Myths",
+      "desc": "Debunking common security misconceptions.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Dark Web Insights",
+      "desc": "Understanding the hidden corners of the internet.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Ethical Hacking Explained",
+      "desc": "The role of ethical hackers in cybersecurity.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Data Privacy Laws",
+      "desc": "Global regulations and compliance requirements.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Social Engineering Attacks",
+      "desc": "How hackers manipulate human psychology.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    }
+  ],
+  "article": [
+    {
+      "title": "Hackathon 2025",
+      "desc": "Highlights from our latest event.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Team Meet",
+      "desc": "Our global community meet-up.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Cybersecurity Training Workshop",
+      "desc": "Corporate training session achievements.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Youth Awareness Program",
+      "desc": "Educating students about digital safety.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Industry Partnership",
+      "desc": "Collaboration with leading tech companies.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    },
+    {
+      "title": "Annual Conference 2024",
+      "desc": "Key insights from cybersecurity experts.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "#"
+    }
+  ]
+}

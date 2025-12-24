@@ -114,8 +114,8 @@
         </button>
         <nav class="nav-links">
           <a href="#hero">Home</a>
-          <a href="pages/About/about.html">About</a>
-          <a href="pages/Services/Service.html">Services</a>
+          <a href="./pages/About/about.html">About</a>
+          <a href="./pages/Services/Service.html">Services</a>
           <a href="#services">Who We Serve</a>
           <a href="#join">Get Involved</a>
           <a href="#contact">Contact</a>
@@ -713,7 +713,18 @@
         <button class="media-tab" data-type="article">Article</button>
       </div>
 
-      <div class="media-grid" id="mediaGrid"></div>
+      <div class="media-carousel-container">
+        <button class="carousel-arrow left" id="mediaCarouselLeft">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="media-carousel" id="mediaCarousel">
+          <div class="media-track" id="mediaTrack"></div>
+        </div>
+        <button class="carousel-arrow right" id="mediaCarouselRight">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
     </section>
 
     <!-- <section class="reviews-section">
@@ -823,7 +834,7 @@
                 <span>Assist in day-to-day operational tasks.</span>
               </li>
             </ul>
-            <a href="#contact" class="card-button">Join as Volunteer</a>
+            <a href="https://forms.gle/j9UM6DqxoHV8gsCn7" target="_blank" class="card-button">Join as Volunteer</a>
           </div>
 
           <!-- Card 2: Speaker -->
@@ -946,7 +957,6 @@
                 <option value="" disabled selected>Select Category</option>
                 <option value="general">General Inquiry</option>
                 <option value="volunteer">Volunteer / Internship</option>
-                <option value="donate">Donation (Money / Hardware)</option>
                 <option value="collab">Collaboration</option>
               </select>
               <input
@@ -1046,6 +1056,12 @@
           </p>
           <div class="social-links">
             <a
+              href="mailto:nikhil@cybersecuredindia.com"
+              target="_blank"
+              class="social-icon bg-email"
+              ><i class="fas fa-envelope"></i>
+            </a>
+            <a
               href="https://linkedin.com/company/cybersecuredindia/"
               target="_blank"
               class="social-icon bg-linkedin"
@@ -1076,12 +1092,12 @@
           <h3>Discover</h3>
           <ul>
             <li><a href="#services">Who We Serve</a></li>
-            <li><a href="pages/About/about.html">Our Team</a></li>
+            <li><a href="./pages/About/about.html">Our Team</a></li>
             <li><a href="#join">Get Involved</a></li>
             <li><a href="#contact">Help & Support</a></li>
           </ul>
         </div>
-        <div class="footer-links">
+        <!-- <div class="footer-links">
           <h3>About</h3>
           <ul>
             <li><a href="pages/About/about.html">About Us</a></li>
@@ -1089,7 +1105,7 @@
             <li><a href="#">News & Events</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-        </div>
+        </div> -->
         <div class="footer-links">
           <h3>Resources</h3>
           <ul>
@@ -1100,17 +1116,30 @@
           </ul>
         </div>
         <div class="footer-links">
-          <h3>Locations</h3>
+          <h3>Associations</h3>
           <ul>
-            <li><a href="#">Mumbai, India</a></li>
+            <li><a href="#">CSA</a></li>
             <li><a href="#">Accra, Ghana</a></li>
             <li><a href="#">Riyadh, Saudi Arabia</a></li>
             <li><a href="#">London, UK</a></li>
           </ul>
         </div>
+        <div class="footer-links">
+          <h3>Address</h3>
+          <a href="https://goo.gl/maps/1JmXh3rZ8Z8p3Y9F9" target="_blank" class="address-link">
+            Cyber Secured India <br />
+            123 Cyber Lane, Mumbai, Maharashtra <br />
+            India - 400001
+          </a>
+          <div class="contact-numbers">
+            <p><i class="fas fa-phone"></i> +91 9936683577</p>
+            <p><i class="fas fa-envelope"></i> info@cybersecuredindia.com</p>
+          </div>
+        </div>
       </div>
+      
       <!-- Our Partners -->
-      <div class="container partners-section">
+      <!-- <div class="container partners-section">
         <p>
           Our Partners:
           <a href="#" target="_blank" class="partner-link"
@@ -1125,9 +1154,9 @@
           <a href="#" target="_blank" class="partner-link">QUIK</a> |
           <a href="#" target="_blank" class="partner-link">NST Cyber</a>
         </p>
-      </div>
+      </div> -->
       <div class="container footer-bottom">
-        <p>© 2025 Cyber Secured India. All rights reserved.</p>
+        <p>©Cyber Secured India. All rights reserved.</p>
         <div class="developer-credit">
           After the dot, it's us. —
           <a
