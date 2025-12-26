@@ -123,7 +123,7 @@
     {
       "name": "Shinja Nagvekar",
       "role": "Core Team",
-      "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/ShinjaNagvekar.jpg",
       "bio": "Core team member dedicated to advancing cybersecurity education and community building initiatives.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/shinja-nagvekar/",
@@ -145,7 +145,7 @@
     {
       "name": "Bonaventure Armaah",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/BonaventureArmaah.png",
       "bio": "Leading cybersecurity expert from Africa, driving digital security awareness and protection across the continent.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/bonaventure-armaah-382720276/",
@@ -215,7 +215,7 @@
     {
       "name": "Neelanjan Manna",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/NeelanjanManna.png",
       "bio": "AI and cybersecurity specialist integrating artificial intelligence for advanced threat detection systems.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/neelanjanmanna/",
@@ -245,7 +245,7 @@
     {
       "name": "Shiv Kataria",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/ShivKataria.png",
       "bio": "Industrial cybersecurity expert securing critical infrastructure and operational technology systems.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/shivkataria/",
@@ -255,7 +255,7 @@
     {
       "name": "Harshad Shah",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/HarshadShah.png",
       "bio": "Ethical hacking expert conducting penetration testing and vulnerability assessments for organizations.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/hackerharshad/",
@@ -265,7 +265,7 @@
     {
       "name": "Chinmay Lavekar",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/ChinmayLavekar.png",
       "bio": "Cloud security specialist focused on securing cloud infrastructure and SaaS application environments.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/chinmay-lavekar-62185a75/",
@@ -275,7 +275,7 @@
     {
       "name": "Tushar Verma",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/TusharVerma.png",
       "bio": "Cybersecurity analyst specializing in threat intelligence and security operations center management.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/tushars25/",
@@ -315,7 +315,7 @@
     {
       "name": "Darshan Naik",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/DarshanNaik.png",
       "bio": "IT security consultant at leading technology services company specializing in enterprise security solutions.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/darshan-naik-73b870204/",
@@ -335,7 +335,7 @@
     {
       "name": "Yashashvi Kumar",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/Yashashvikumar.png",
       "bio": "Automotive cybersecurity specialist securing connected vehicles and automotive manufacturing systems.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/yashashvikumar/",
@@ -345,7 +345,7 @@
     {
       "name": "Nikhil Suvarna",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/NikhilSuvarna.png",
       "bio": "Banking sector cybersecurity professional with expertise in financial system security and compliance.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/nikhil-suvarna-89857b189/",
@@ -355,7 +355,7 @@
     {
       "name": "Priyank Gada",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/PriyankGada.png",
       "bio": "Cybersecurity researcher focused on indigenous security solutions and digital sovereignty initiatives.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/priyank-gada/",
@@ -375,7 +375,7 @@
     {
       "name": "Vasudev Jha",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/VasudevJha.png",
       "bio": "IT solutions architect specializing in secure system design and cybersecurity infrastructure.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/vasudev-jha-953a52289/",
@@ -395,7 +395,7 @@
     {
       "name": "Saurabh Kashyap",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/SaurabhKashyap.png",
       "bio": "Independent security researcher and consultant providing advanced cybersecurity advisory services.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/shyap/",
@@ -415,7 +415,7 @@
     {
       "name": "Rikunj Sindhwad",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/RikunjSindhwad.png",
       "bio": "Enterprise security advisor providing cybersecurity consulting and digital risk management services.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/rikunj/",
@@ -425,7 +425,7 @@
     {
       "name": "Goverdhan Kumar",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/GoverdhanKumar.png",
       "bio": "Technology consultant specializing in cybersecurity architecture and secure software development.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/wh04m1i/",
@@ -435,7 +435,7 @@
     {
       "name": "Harsh Parekh",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/HarshParekh.png",
       "bio": "Security startup founder developing innovative cybersecurity products and security automation tools.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/harshfromsecurze/",
@@ -445,7 +445,7 @@
     {
       "name": "Sreedeep AY",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/SreedeepAY.png",
       "bio": "Cybersecurity analyst at global consulting firm focusing on security strategy and implementation.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/sreedeep-ay/",
@@ -455,7 +455,7 @@
     {
       "name": "Sushant Kamble",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/SushantKamble.png",
       "bio": "Security consultant providing enterprise cybersecurity solutions and compliance advisory services.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/iamsushantkamble/",
@@ -465,7 +465,7 @@
     {
       "name": "Nikhil Rane",
       "role": "Speaker",
-      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "image": "../../assets/CSI TEAM/NikhilRane.png",
       "bio": "Gaming industry cybersecurity expert securing online platforms and protecting customer data.",
       "social": {
         "linkedin": "https://www.linkedin.com/in/nikhilranecybersecurity/",
