@@ -1,4 +1,3 @@
-// Simplified About page JS: render team members as circular avatars with name, role and LinkedIn
 document.addEventListener('DOMContentLoaded', () => {
   loadTeamData();
 });
@@ -8,8 +7,7 @@ async function loadTeamData() {
     const res = await fetch('team-data.json');
     if (!res.ok) throw new Error('Could not fetch team-data.json');
     const data = await res.json();
-
-    // combine founder + team so the founder appears first in the simple grid
+    
     const members = [];
     if (data.founder) members.push({
       name: data.founder.name,
@@ -20,6 +18,13 @@ async function loadTeamData() {
     if (Array.isArray(data.team)) members.push(...data.team);
 
     renderTeamGrid(members);
+
+    // Render speakers if present
+    if (Array.isArray(data.speakers) && data.speakers.length > 0) {
+      renderSpeakers(data.speakers);
+      const speakersSection = document.getElementById('speakers-section');
+      if (speakersSection) speakersSection.style.display = '';
+    }
   } catch (err) {
     console.error('Error loading team data:', err);
     const grid = document.getElementById('team-grid');
@@ -33,10 +38,9 @@ function renderTeamGrid(members) {
 
   const cards = members.map(member => {
     const linkedin = member.social && member.social.linkedin ? member.social.linkedin : '';
-    // Use a fallback image if path is missing (optional)
     const src = member.image || 'https://via.placeholder.com/320x320?text=CSI';
 
-    // sanitize (basic) to avoid breaking markup; in a production app use proper sanitization
+  
     const safeName = escapeHtml(member.name || '');
     const safeRole = escapeHtml(member.role || '');
 
@@ -55,7 +59,31 @@ function renderTeamGrid(members) {
   grid.innerHTML = cards;
 }
 
-// simple HTML-escape helper
+function renderSpeakers(speakers) {
+  const grid = document.getElementById('speakers-grid');
+  if (!grid) return;
+
+  const cards = speakers.map(speaker => {
+    const linkedin = speaker.social && speaker.social.linkedin ? speaker.social.linkedin : '';
+    const src = speaker.image || 'https://via.placeholder.com/320x320?text=Speaker';
+    const safeName = escapeHtml(speaker.name || '');
+    const safeRole = escapeHtml(speaker.role || 'Speaker');
+
+    return `
+      <div class="team-card" role="article">
+        <img class="avatar" src="${src}" alt="${safeName}" loading="lazy" />
+        <div class="member-name">${safeName}</div>
+        <div class="member-role">${safeRole}</div>
+        <div>
+          ${linkedin ? `<a class="social-link" href="${linkedin}" target="_blank" rel="noopener" aria-label="${safeName} LinkedIn"><i class="fab fa-linkedin-in"></i></a>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.innerHTML = cards;
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
