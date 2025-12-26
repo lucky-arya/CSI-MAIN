@@ -9,20 +9,18 @@
     <link rel="stylesheet" href="../../styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        /* Scoped to main content only - don't affect header/footer */
         body {
+            padding-top: 80px;
+        }
+        
+        .careers-page-content {
             background: linear-gradient(120deg, #fdfdff, #eef2ff, #fdfdff);
             background-size: 300% 300%;
             animation: bgMove 20s ease infinite;
-            color: #333;
         }
 
         @keyframes bgMove {
@@ -92,7 +90,7 @@
             }
         }
 
-        .container {
+        .careers-container {
             max-width: 1150px;
             margin: auto;
             padding: 20px 20px 90px;
@@ -202,7 +200,7 @@
             margin-bottom: 8px;
         }
 
-        footer {
+        .careers-footer {
             background: #f5f5fc;
             text-align: center;
             padding: 35px;
@@ -214,20 +212,21 @@
     <!-- Header Component -->
     <div id="header-component"></div>
 
-    <section class="page-header hero">
-        <div class="hero-wrap">
-            <div class="hero-card">
-                <h1>Careers at Cyber Secured India</h1>
-                <p>Join our mission to strengthen cyber defense and secure critical digital infrastructures worldwide.
-                </p>
+    <div class="careers-page-content">
+        <section class="page-header hero">
+            <div class="hero-wrap">
+                <div class="hero-card">
+                    <h1>Careers at Cyber Secured India</h1>
+                    <p>Join our mission to strengthen cyber defense and secure critical digital infrastructures worldwide.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.SX3kCqw-M9gsSwyLcooIkQHaFG?pid=Api">
+                </div>
             </div>
-            <div class="hero-image">
-                <img src="https://tse1.mm.bing.net/th/id/OIP.SX3kCqw-M9gsSwyLcooIkQHaFG?pid=Api">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="container">
+    <div class="careers-container">
         <div class="section-title">
             <h2>Open Positions</h2>
             <p>High-impact cybersecurity & intelligence roles</p>
@@ -513,9 +512,7 @@
             </div>
         </div>
 
-        <footer>
-            Careers at Cyber Secured India – Empowering Cybersecurity Talent
-        </footer>
+
 
         <script>
             function toggleDetails(btn) {
@@ -523,6 +520,7 @@
                 details.classList.toggle("show");
             }
         </script>
+    </div>
 
     <!-- Footer Component -->
     <div id="footer-component"></div>
