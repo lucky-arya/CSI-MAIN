@@ -7,21 +7,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const navLinksList = document.querySelectorAll(".nav-links a");
   const body = document.body;
 
-  mobileMenuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    body.classList.toggle("menu-open");
-  });
-
-  // Close menu when a link is clicked
-  navLinksList.forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      body.classList.remove("menu-open");
+  // Only add mobile menu listeners if elements exist (not using component system)
+  if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      body.classList.toggle("menu-open");
     });
-  });
+
+    // Close menu when a link is clicked
+    navLinksList.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        body.classList.remove("menu-open");
+      });
+    });
+  }
 
 
 
+  // Hero Slider functionality
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.slider-dot');
   const leftArrow = document.querySelector('.slider-arrow.left');
@@ -30,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const subheadline = document.querySelector('.subheadline');
   const ctaGroup = document.querySelector('.cta-group');
   const rating = document.querySelector('.rating');
+  
+  // Only initialize slider if elements exist
+  if (!slides.length || !headline) {
+    console.log('Hero slider elements not found, skipping initialization');
+    return;
+  }
+
   let currentSlide = 0;
   let slideInterval;
 

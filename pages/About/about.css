@@ -10,7 +10,7 @@
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-.container{
+.about-main .container{
   max-width: var(--max-width);
   position: relative;
   margin: 53px auto;
