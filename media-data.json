@@ -1,155 +1,173 @@
 {
   "news": [
     {
-      "title": "Cyber Security News Update",
-      "desc": "Latest developments in cybersecurity and digital safety.",
-      "yt": "https://www.youtube.com/embed/uWUR91z61ps"
-    },
-    {
-      "title": "Cybersecurity Awareness",
-      "desc": "Important insights on protecting digital assets.",
+      "title": "Cybersecurity Awareness and Digital Safety",
+      "desc": "Expert discussion on cyber risks, awareness, and safe digital practices.",
       "yt": "https://www.youtube.com/embed/my5CPZ3gXGM"
     },
     {
-      "title": "Digital Security Brief",
-      "desc": "Stay informed about current cyber threats.",
-      "yt": "https://www.youtube.com/embed/L1rIPCGFfCw"
-    },
-    {
-      "title": "Cyber Safety Update",
-      "desc": "Essential updates on online security measures.",
+      "title": "Cyber Safety and Online Threats",
+      "desc": "Insights into evolving cyber threats and how individuals can stay protected.",
       "yt": "https://www.youtube.com/embed/SpQodYS1G9w"
     },
     {
-      "title": "Information Security News",
-      "desc": "Critical cybersecurity information and trends.",
+      "title": "Information Security and Cyber Defense",
+      "desc": "Understanding the importance of strong cyber defense mechanisms.",
       "yt": "https://www.youtube.com/embed/buO4YpTbQ6s"
     },
     {
-      "title": "Cyber Defense Strategies",
-      "desc": "Learn effective cyber defense techniques.",
+      "title": "Cyber Defense Strategies Explained",
+      "desc": "An overview of modern cyber defense strategies and best practices.",
       "yt": "https://www.youtube.com/embed/Requpf56EIE"
     },
     {
-      "title": "Digital Protection Guide",
-      "desc": "Comprehensive guide to digital security.",
-      "yt": "https://www.youtube.com/embed/s_V5LjYqHek"
+      "title": "Digital Safety and Cyber Awareness",
+      "desc": "Spreading awareness about cybersecurity challenges in the digital age.",
+      "yt": "https://www.youtube.com/embed/kyewj5cnmXw"
+    }
+  ],
+
+  "podcasts": [
+    {
+      "title": "Cyber Security News Update",
+      "desc": "Discussion on recent cybersecurity developments and digital safety issues.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=uWUR91z61ps"
+    },
+    {
+      "title": "Digital Security Brief",
+      "desc": "An in-depth look at cyber threats and online protection methods.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=L1rIPCGFfCw"
+    },
+    {
+      "title": "Comprehensive Guide to Digital Security",
+      "desc": "Explaining essential cybersecurity concepts for individuals and organizations.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=s_V5LjYqHek"
     },
     {
       "title": "Cybersecurity Insights",
-      "desc": "Expert analysis on cybersecurity challenges.",
-      "yt": "https://www.youtube.com/embed/D9tn2kM9olg"
+      "desc": "Expert insights into the challenges and realities of cybersecurity.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=D9tn2kM9olg"
     },
     {
-      "title": "Network Security Update",
-      "desc": "Latest network security practices and tips.",
-      "yt": "https://www.youtube.com/embed/tqoH0WeILPM"
+      "title": "Network Security Best Practices",
+      "desc": "Practical tips to improve network security and prevent cyber attacks.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=tqoH0WeILPM"
     },
     {
-      "title": "Cyber Threat Analysis",
-      "desc": "Understanding and mitigating cyber threats.",
-      "yt": "https://www.youtube.com/embed/vTZ2Dm8SBjw"
+      "title": "Understanding Cyber Threats",
+      "desc": "A breakdown of common cyber threats and how to mitigate them.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=vTZ2Dm8SBjw"
     },
     {
-      "title": "Data Protection News",
-      "desc": "Important updates on data privacy and protection.",
-      "yt": "https://www.youtube.com/embed/NonRWQgCiZI"
+      "title": "Data Protection and Privacy",
+      "desc": "Discussion on data protection, privacy laws, and online safety.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=NonRWQgCiZI"
     },
     {
       "title": "Security Awareness Training",
-      "desc": "Building a security-conscious organization.",
-      "yt": "https://www.youtube.com/embed/x_H3b24bwsI"
+      "desc": "Why cybersecurity awareness training is critical for everyone.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=x_H3b24bwsI"
     },
     {
-      "title": "Cyber Crime Prevention",
-      "desc": "Strategies to prevent and combat cybercrime.",
-      "yt": "https://www.youtube.com/embed/v4U0FRyU3U4"
+      "title": "Cyber Crime Prevention Strategies",
+      "desc": "Exploring effective ways to prevent and respond to cybercrime.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=v4U0FRyU3U4"
     },
     {
       "title": "Online Safety Guidelines",
-      "desc": "Best practices for staying safe online.",
-      "yt": "https://www.youtube.com/embed/aO-RXsmCusI"
+      "desc": "Essential online safety tips for individuals and families.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=aO-RXsmCusI"
     },
     {
       "title": "Cybersecurity Best Practices",
-      "desc": "Essential cybersecurity tips and recommendations.",
-      "yt": "https://www.youtube.com/embed/H2lCE0xwbRM"
+      "desc": "Recommended cybersecurity practices to stay safe online.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.youtube.com/watch?v=H2lCE0xwbRM"
+    },
+    {
+      "title": "Cyber Awareness Short Reel",
+      "desc": "Quick cyber awareness message highlighting online safety.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://www.instagram.com/reel/Crz8UXop6YZ/"
     }
   ],
-  "podcasts": [
-    {
-      "title": "Staying Safe Online",
-      "desc": "Tips for protecting your personal data.",
-      "img": "https://via.placeholder.com/300x180",
-      "link": "#"
-    },
-    {
-      "title": "Cybersecurity Myths",
-      "desc": "Debunking common security misconceptions.",
-      "img": "https://via.placeholder.com/300x180",
-      "link": "#"
-    },
-    {
-      "title": "Dark Web Insights",
-      "desc": "Understanding the hidden corners of the internet.",
-      "img": "https://via.placeholder.com/300x180",
-      "link": "#"
-    },
-    {
-      "title": "Ethical Hacking Explained",
-      "desc": "The role of ethical hackers in cybersecurity.",
-      "img": "https://via.placeholder.com/300x180",
-      "link": "#"
-    },
-    {
-      "title": "Data Privacy Laws",
-      "desc": "Global regulations and compliance requirements.",
-      "img": "https://via.placeholder.com/300x180",
-      "link": "#"
-    },
-    {
-      "title": "Social Engineering Attacks",
-      "desc": "How hackers manipulate human psychology.",
-      "img": "https://via.placeholder.com/300x180",
-      "link": "#"
-    }
-  ],
+
   "article": [
     {
-      "title": "Hackathon 2025",
-      "desc": "Highlights from our latest event.",
+      "title": "Cybercriminals Do Not Discriminate",
+      "desc": "An opinion piece highlighting how cybercrime affects individuals across all demographics.",
       "img": "https://via.placeholder.com/300x180",
-      "link": "#"
+      "link": "https://www.deccanherald.com/opinion/cybercriminals-do-not-discriminate-954214.html"
     },
     {
-      "title": "Team Meet",
-      "desc": "Our global community meet-up.",
+      "title": "Practical Cyber Safety Tips for Women",
+      "desc": "Essential cybersecurity tips to help women stay safe in the digital world.",
       "img": "https://via.placeholder.com/300x180",
-      "link": "#"
+      "link": "https://www.moneycontrol.com/news/trends/womens-day-2021-here-are-some-practical-tips-for-women-to-stay-cyber-safe-6611441.html"
     },
     {
-      "title": "Cybersecurity Training Workshop",
-      "desc": "Corporate training session achievements.",
+      "title": "Online Child Safety and Parental Awareness",
+      "desc": "Why parental awareness and training are crucial for ensuring children’s online safety.",
       "img": "https://via.placeholder.com/300x180",
-      "link": "#"
+      "link": "https://www.moneycontrol.com/news/trends/features/online-child-safety-is-linked-to-parental-awareness-and-training-5859501.html"
     },
     {
-      "title": "Youth Awareness Program",
-      "desc": "Educating students about digital safety.",
+      "title": "Shielding You from the Dark Side of the Internet",
+      "desc": "A profile highlighting efforts to combat cybercrime and promote digital safety.",
       "img": "https://via.placeholder.com/300x180",
-      "link": "#"
+      "link": "https://www.digitalfirstmagazine.com/nikhil-mahadeshwar-shielding-you-from-the-dark-side-of-the-internet/"
     },
     {
-      "title": "Industry Partnership",
-      "desc": "Collaboration with leading tech companies.",
+      "title": "COVID-19: A Wake-Up Call for Cybersecurity",
+      "desc": "How the pandemic exposed cybersecurity gaps and increased digital threats.",
       "img": "https://via.placeholder.com/300x180",
-      "link": "#"
+      "link": "https://www.thehindubusinessline.com/opinion/covid-a-wake-up-call-for-cyber-security/article32386722.ece"
     },
     {
-      "title": "Annual Conference 2024",
-      "desc": "Key insights from cybersecurity experts.",
+      "title": "Technology Helps Police Track Cybercriminals",
+      "desc": "How evolving technologies assist law enforcement in solving cybercrime cases.",
       "img": "https://via.placeholder.com/300x180",
-      "link": "#"
+      "link": "https://timesofindia.indiatimes.com/city/mumbai/ever-evolving-tech-allies-help-cops-follow-e-footprints-to-nab-criminals/articleshow/97213300.cms"
+    },
+    {
+      "title": "Beware of Fake e-Challan Cyber Scams",
+      "desc": "An alert on fraudulent e-challan messages used by cyber scammers.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://timesofindia.indiatimes.com/city/mumbai/look-closely-that-e-challan-may-be-from-cyber-scammer/articleshow/109096876.cms"
+    },
+    {
+      "title": "KYC Fraud Case Highlights Cyber Risks",
+      "desc": "A real-world case demonstrating the dangers of KYC-related cyber fraud.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://timesofindia.indiatimes.com/city/mumbai/kyc-fraud-in-colaba-cops-help-woman-recover-rs-2-lakh/articleshow/92627268.cms"
+    },
+    {
+      "title": "Investment Scams and Rising Cybercrime",
+      "desc": "Cyber financial fraud cases surge as investment scams rise sharply.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://timesofindia.indiatimes.com/city/mumbai/investment-scams-up-14-times-cybercrimes-spike-22-in-2024/articleshow/117700353.cms"
+    },
+    {
+      "title": "Fake Police Cyber Scam Exposed",
+      "desc": "A cyber scam involving fake police officers and digital extortion tactics.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://timesofindia.indiatimes.com/city/mumbai/cyber-scam-20-fake-cops-extort-crores-from-victims-in-hotel-detention-scheme/articleshow/113558424.cms"
+    },
+    {
+      "title": "Low Conviction Rate in Cyber Fraud Cases",
+      "desc": "An RTI reveals alarming gaps between cybercrime cases and convictions.",
+      "img": "https://via.placeholder.com/300x180",
+      "link": "https://timesofindia.indiatimes.com/city/mumbai/2k-cyber-financial-fraud-cases-in-4-yrs-just-2-convictions-rti/articleshow/120627760.cms"
     }
   ]
 }
