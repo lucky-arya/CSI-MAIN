@@ -357,12 +357,24 @@ const countries = [
 const carouselTracks = document.querySelectorAll(".carousel-track");
 
 function createFlags() {
-  carouselTracks.forEach((track) => {
+  // Shuffle countries to randomize distribution
+  const shuffledCountries = [...countries].sort(() => Math.random() - 0.5);
+  
+  // Calculate how many countries per track
+  const countriesPerTrack = Math.ceil(shuffledCountries.length / carouselTracks.length);
+  
+  carouselTracks.forEach((track, trackIndex) => {
     // Clear any existing content
     track.innerHTML = '';
+    
+    // Get unique subset of countries for this track
+    const startIndex = trackIndex * countriesPerTrack;
+    const endIndex = Math.min(startIndex + countriesPerTrack, shuffledCountries.length);
+    const trackCountries = shuffledCountries.slice(startIndex, endIndex);
+    
+    // Create flags twice for smooth infinite scroll
     for (let i = 0; i < 2; i++) {
-      // duplicate list for smooth loop
-      countries.forEach((country) => {
+      trackCountries.forEach((country) => {
         // Create wrapper div for flag and tooltip
         const flagItem = document.createElement("div");
         flagItem.className = "flag-item";
