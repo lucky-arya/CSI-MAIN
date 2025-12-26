@@ -95,6 +95,10 @@ body {
   text-align: center;
   box-shadow: 0 15px 30px rgba(0,0,0,0.08);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 1;
+}
+
+.associations-grid:not(.row-2) .association-card {
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
 }
@@ -153,17 +157,132 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .page-header {
+    padding: 60px 20px;
+  }
+  
+  .header-text h1 {
+    font-size: 36px;
+  }
+  
+  .associations-wrapper {
+    margin: 50px auto;
+  }
+}
+
 @media (max-width: 900px) {
   .associations-grid,
   .associations-grid.row-2 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .page-header {
+    padding: 50px 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .page-header::before {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .header-text h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .header-text p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .associations-wrapper {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+  
+  .association-card {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+  
+  .association-card img {
+    max-height: 120px;
+  }
+  
+  .association-card h3 {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 600px) {
+  .page-header {
+    padding: 40px 15px;
+  }
+  
+  .header-text h1 {
+    font-size: 28px;
+  }
+  
+  .header-text p {
+    font-size: 14px;
+  }
+  
   .associations-grid,
   .associations-grid.row-2 {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .associations-wrapper {
+    margin: 30px auto;
+  }
+  
+  .association-card {
+    padding: 20px;
+  }
+  
+  .association-card img {
+    max-height: 100px;
+  }
+  
+  .association-card h3 {
+    font-size: 18px;
+  }
+  
+  .association-card p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-text h1 {
+    font-size: 24px;
+  }
+  
+  .header-text p {
+    font-size: 13px;
+  }
+  
+  .associations-grid.row-2 {
+    margin-top: 20px;
+  }
+  
+  .association-card {
+    padding: 18px;
+  }
+  
+  .website-link {
+    font-size: 12px;
   }
 }
 
@@ -213,9 +332,7 @@ a {
       <h3>BSides Mumbai</h3>
       <p>BSides Mumbai is a community-driven cybersecurity conference.</p>
     </div>
-  </div>
 
-  <div class="associations-grid row-2">
     <div class="association-card" style="animation-delay:0.4s">
       <img src="https://www.otsechuddle.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FOTLogo3.9328318f.png&w=3840&q=75">
       <a class="website-link" href="https://www.otsechuddle.com/" target="_blank">www.otsechuddle.com</a>
