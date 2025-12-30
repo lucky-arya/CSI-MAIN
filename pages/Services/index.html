@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Cyber Secured India</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8f9fb;
+  color: #0a2540;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  background: #ffffff;
+  padding: 60px 20px 40px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #0a2540;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 400;
+}
+
+/* DESCRIPTION */
+.services-description {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  text-align: center;
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 1rem;
+  padding: 0 20px;
+}
+
+/* WRAPPER */
+.services-wrapper {
+  max-width: 1100px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+/* GRID – 2 CARDS PER ROW */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* SEPARATOR */
+.section-separator {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  position: relative;
+}
+
+.section-separator::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #1084c3, transparent);
+}
+
+.section-separator i {
+  background: #f8f9fb;
+  padding: 0 20px;
+  color: #1084c3;
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* CARD */
+.service-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(10, 37, 64, 0.04);
+  transition: 0.3s ease;
+  opacity: 0;
+  flex: 1 1 45%;
+  min-width: 300px;
+  border: 1px solid #f0f2f5;
+}
+
+/* ICON */
+.service-card i {
+  min-width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #1084c3, #0a2540);
+  color: #fff;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* TEXT */
+.service-card h3 {
+  color: #0a2540;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.service-card span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1084c3;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+/* BUTTON */
+.service-card button {
+  background: #1084c3;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.service-card button:hover {
+  background: #0a2540;
+  transform: translateY(-2px);
+}
+
+/* HOVER */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(10, 37, 64, 0.08);
+  border-color: #1084c3;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeLeft { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes fadeRight { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes fadeDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 37, 64, 0.5);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  max-width: 700px;
+  width: 90%;
+  padding: 40px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(10, 37, 64, 0.3);
+}
+
+.modal-content h2 {
+  color: #0a2540;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content ul li {
+  padding: 12px 0;
+  padding-left: 28px;
+  position: relative;
+  color: #4a5568;
+  line-height: 1.6;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.modal-content ul li:last-child {
+  border-bottom: none;
+}
+
+.modal-content ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1084c3;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #0a2540;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px;
+  }
+
+  .service-card i {
+    min-width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+
+  .modal-content {
+    padding: 30px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 40px 20px 30px;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  .services-description {
+    font-size: 0.95rem;
+  }
+
+  .service-card {
+    padding: 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Our Services</h1>
+  <p>Professional Cybersecurity Training & Defence Solutions</p>
+</header>
+
+<section class="services-description">
+  <p>
+    At Cyber Secured India, we provide a comprehensive range of cybersecurity services and training programs designed to empower organizations, educators, and individuals.
+  </p>
+</section>
+
+<section class="services-wrapper">
+<div class="services-grid">
+
+  <div class="service-card" data-animation="fadeUp">
+    <i class="fa fa-automobile"></i>
+    <div>
+      <h3>Law Enforcement</h3>
+      <span>Cybercrime investigation expertise</span>
+      <p>Specialized cybercrime investigation and digital forensics training for officers.</p>
+      <button onclick="openModal('law')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeLeft">
+    <i class="fas fa-shield-alt"></i>
+    <div>
+      <h3>Defence Training</h3>
+      <span>Strategic cyber warfare programs</span>
+      <p>Advanced cyber warfare, defensive strategies and national security-focused programs.</p>
+      <button onclick="openModal('defence')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeRight">
+    <i class="fas fa-building"></i>
+    <div>
+      <h3>Corporate Training</h3>
+      <span>Cyber awareness & resilience building</span>
+      <p>Customized cybersecurity awareness and technical training for modern organizations.</p>
+      <button onclick="openModal('corporate')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeDown">
+    <i class="fas fa-chalkboard-teacher"></i>
+    <div>
+      <h3>Faculty Development</h3>
+      <span>Empowering educators with cyber excellence</span>
+      <p>Advanced cybersecurity programs designed to empower educators with modern cyber skills.</p>
+      <button onclick="openModal('faculty')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="zoomIn">
+    <i class="fas fa-user-graduate"></i>
+    <div>
+      <h3>Student Bootcamps</h3>
+      <span>Industry-ready cyber skill programs</span>
+      <p>Hands-on bootcamps focused on ethical hacking, forensics and real-world cyber labs.</p>
+      <button onclick="openModal('student')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeUp">
+    <i class="fas fa-hand-sparkles"></i>
+    <div>
+      <h3>Cyber Hygiene</h3>
+      <span>Essential Cyber Safety Practices</span>
+      <p>Awareness training on phishing, password management, and safe browsing.</p>
+      <button onclick="openModal('cyber_hygiene')">Read More</button>
+    </div>
+  </div>
+
+  <div class="section-separator">
+    <i class="fas fa-user-shield"></i>
+  </div>
+
+  <div class="service-card" data-animation="fadeLeft">
+    <i class="fas fa-robot"></i>
+    <div>
+      <h3>Cyber Crime Chatbot</h3>
+      <span>24/7 Digital Incident Support</span>
+      <p>Automated fraud triage, evidence collection, and legal consultation support.</p>
+      <button onclick="openModal('helpline_chatbot')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeRight">
+    <i class="fas fa-laptop-code"></i>
+    <div>
+      <h3>Web App VAPT</h3>
+      <span>Securing Web Applications</span>
+      <p>Threat modeling and dynamic analysis to uncover logic flaws and vulnerabilities.</p>
+      <button onclick="openModal('web_vapt')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeDown">
+    <i class="fas fa-mobile-alt"></i>
+    <div>
+      <h3>Mobile App VAPT</h3>
+      <span>Mobile Security Excellence</span>
+      <p>Static and dynamic analysis for root detection and API traffic monitoring.</p>
+      <button onclick="openModal('mobile_vapt')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="zoomIn">
+    <i class="fas fa-search-plus"></i>
+    <div>
+      <h3>VA & PT</h3>
+      <span>Vulnerability Assessment</span>
+      <p>Internal and external network scanning to identify and assess security gaps.</p>
+      <button onclick="openModal('vapt_general')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeUp">
+    <i class="fas fa-user-ninja"></i>
+    <div>
+      <h3>Red Teaming</h3>
+      <span>Adversarial Simulation</span>
+      <p>Live system exploitation and red-blue team drills for true resilience testing.</p>
+      <button onclick="openModal('red_teaming')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeLeft">
+    <i class="fas fa-fingerprint"></i>
+    <div>
+      <h3>Digital Forensics</h3>
+      <span>Investigation & Analysis</span>
+      <p>Comprehensive imaging and analysis of digital artifacts for deep investigations.</p>
+      <button onclick="openModal('digital_forensics')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeRight">
+    <i class="fas fa-file-signature"></i>
+    <div>
+      <h3>Forensics Readiness</h3>
+      <span>Incident Preparedness</span>
+      <p>Designing protocols and log strategies to ensure legal and technical readiness.</p>
+      <button onclick="openModal('forensics_readiness')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeDown">
+    <i class="fas fa-clipboard-check"></i>
+    <div>
+      <h3>IT GRC</h3>
+      <span>Governance & Compliance</span>
+      <p>Ensuring ISO compliance and privacy guidelines through rigorous auditing.</p>
+      <button onclick="openModal('it_grc')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="zoomIn">
+    <i class="fa fa-cloud-download"></i>
+    <div>
+      <h3>Cloud DevSecOps</h3>
+      <span>Security Integrated CI/CD</span>
+      <p>Securing containers, Kubernetes, and pipelines through automated testing.</p>
+      <button onclick="openModal('devsecops')">Read More</button>
+    </div>
+  </div>
+
+  <div class="service-card" data-animation="fadeUp">
+    <i class="fas fa-satellite-dish"></i>
+    <div>
+      <h3>SOC IR w/XDR</h3>
+      <span>Response & Threat Hunting</span>
+      <p>Advanced SIEM/EDR capabilities for proactive threat handling.</p>
+      <button onclick="openModal('soc_ir')">Read More</button>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const data = {
+  faculty: `<h2>Faculty Development Programs</h2><ul><li>Ethical Hacking</li><li>Cyber Defense Strategies</li><li>Threat Intelligence</li><li>Curriculum Development</li></ul>`,
+  student: `<h2>Student Bootcamps</h2><ul><li>Ethical Hacking</li><li>Digital Forensics</li><li>OSINT</li><li>Live Cyber Labs</li></ul>`,
+  corporate: `<h2>Corporate Training</h2><ul><li>Risk Management</li><li>Incident Response</li><li>Compliance Training</li><li>Employee Awareness</li></ul>`,
+  defence: `<h2>Defence Cyber Training</h2><ul><li>Offensive Cyber Operations</li><li>Defensive Cyber Operations</li><li>Cyber Intelligence</li><li>Simulation Exercises</li></ul>`,
+  law: `<h2>Law Enforcement Training</h2><ul><li>Cybercrime Investigation</li><li>Digital Evidence Handling</li><li>Legal Frameworks</li><li>Advanced Forensics</li></ul>`,
+  digital_forensics: `<h2>Digital Forensics</h2><ul><li>Disk and memory Imaging</li><li>Email and browser artifact analysis</li><li>Malware behavior analysis</li><li>Chain-of-custody handling</li></ul>`,
+  forensics_readiness: `<h2>Forensics Readiness</h2><ul><li>Incident evidence collection protocols</li><li>Legal readiness and documentation</li><li>Log retention and monitoring strategy</li><li>Staff sensitization and policy design</li></ul>`,
+  data_analytics: `<h2>Data Analytics - ML Engineer</h2><ul><li>Practical Python (Numpy, Pandas)</li><li>Statistical Methods for Analytics</li><li>Advanced Data Analytics ML</li><li>Supervised & Unsupervised Learning</li></ul>`,
+  it_grc: `<h2>IT GRC / IT Audit</h2><ul><li>ISO Standard Compliance (27001, 31000)</li><li>Privacy Guidelines (DPDP, GDPR, HIPAA)</li><li>Vendor Audit (SOC2, Third Party)</li><li>IS Auditing standards (COBIT)</li></ul>`,
+  vapt_general: `<h2>VA & PT</h2><ul><li>Internal/external network scanning</li><li>Firewall, router, switch assessment</li><li>Configuration & access control testing</li><li>Wi-Fi security testing</li></ul>`,
+  red_teaming: `<h2>Red Teaming</h2><ul><li>Red-Blue team drills</li><li>Network intrusion & lateral movement</li><li>Exploitation of live systems</li><li>Reporting with attack chains</li></ul>`,
+  cyber_hygiene: `<h2>Cyber Hygiene</h2><ul><li>Phishing & scam awareness</li><li>Safe browsing & social media practices</li><li>Password management</li><li>Mobile device hygiene</li></ul>`,
+  helpline_chatbot: `<h2>Cyber Crime Helpline Chatbot</h2><ul><li>Fraud/abuse triage and advisory</li><li>Initial evidence collection</li><li>Legal consultation support</li><li>Incident logging and tracking</li></ul>`,
+  devsecops: `<h2>Cloud DevSecOps</h2><ul><li>Secure CI/CD pipelines</li><li>Integrating SAST, DAST, SCA tools</li><li>Securing Docker and Kubernetes</li><li>Monitoring, alerting, and log analysis (ELK)</li></ul>`,
+  soc_ir: `<h2>SOC IR w/XDR</h2><ul><li>SIEM Architecture & Integration (ELK / Splunk)</li><li>EDR/XDR Capabilities</li><li>Threat Intel & Threat Hunting</li><li>MITRE / Kill Chain</li></ul>`,
+  web_vapt: `<h2>Web App VAPT</h2><ul><li>Threat modeling and scope definition</li><li>Static and dynamic analysis</li><li>Logic flaws and session review</li><li>Business logic vulnerability testing</li></ul>`,
+  mobile_vapt: `<h2>Mobile App VAPT</h2><ul><li>Static code analysis</li><li>Dynamic runtime behavior analysis</li><li>Reverse engineering</li><li>Root/jailbreak detection</li></ul>`
+};
+
+function openModal(key) {
+  document.getElementById('modal-body').innerHTML = data[key];
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+const cards = document.querySelectorAll('.service-card');
+
+function animateOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  cards.forEach(card => {
+    const cardTop = card.getBoundingClientRect().top;
+    if(cardTop < triggerBottom) {
+      const animation = card.dataset.animation;
+      card.style.animation = `${animation} 0.8s ease forwards`;
+    }
+  });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+</script>
+
+</body>
+</html>
