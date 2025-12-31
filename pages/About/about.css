@@ -88,10 +88,18 @@
   font-size: 0.95rem;
 }
 
-/* Simple grid for avatars */
+/* Grid for core team and advisors - 4 per row */
 .team-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Grid for speakers - 5 per row */
+.speakers-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 18px;
   align-items: start;
 }
@@ -119,6 +127,17 @@
   width: 112px;
   height: 112px;
   border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 12px;
+  border: 2px solid rgba(16,132,195,0.12);
+}
+
+/* Rectangular avatar for core team */
+.avatar-rect{
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius);
   object-fit: cover;
   display: block;
   margin-bottom: 12px;
@@ -155,18 +174,23 @@
 
 /* Responsive */
 @media (max-width: 1200px){
-  .team-grid{ grid-template-columns: repeat(3,1fr); }
+  .team-grid{ grid-template-columns: repeat(3, 1fr); }
+  .speakers-grid{ grid-template-columns: repeat(4, 1fr); }
 }
 
+/* Responsive adjustments */
 @media (max-width: 820px){
-  .team-grid{ grid-template-columns: repeat(2,1fr); gap: 14px; }
+  .team-grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .speakers-grid{ grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .avatar{ width: 96px; height: 96px; }
+  .avatar-rect{ width: 96px; height: 120px; }
 }
 
 @media (max-width: 480px){
   .team-grid{ grid-template-columns: 1fr; }
+  .speakers-grid{ grid-template-columns: 1fr; }
   .container{ padding-left: 16px; padding-right: 16px; }
   .team-card{ padding: 14px; }
   .avatar{ width: 88px; height: 88px; }
-  .team-subheading{ display: none; } /* keep the header line only on small screens */
+  .avatar-rect{ width: 88px; height: 110px; }
 }
