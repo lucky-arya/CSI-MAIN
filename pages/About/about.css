@@ -1,93 +1,121 @@
-/* Simplified About Page Styles (clean, minimal) */
+/* ================================
+   About Page – Responsive CSS
+   Cyber Secured India
+================================ */
 
-:root{
+/* Global reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Root variables */
+:root {
   --primary: #1084c3;
   --muted: #6c757d;
   --bg: #ffffff;
-  --page-padding: 48px;
   --max-width: 1100px;
   --radius: 8px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
 }
 
-.about-main .container{
-  max-width: var(--max-width);
-  position: relative;
-  margin: 53px auto;
-  padding: 0 20px;
-  width: 100%;
-}
+/* ================================
+   Layout
+================================ */
 
-/* Page layout */
-.about-main{
-  padding: 48px 0;
+.about-main {
+  padding: clamp(24px, 5vw, 56px) 0;
   background: var(--bg);
   color: #0a2540;
 }
 
-/* Intro */
-.intro h1{
-  font-size: 2rem;
+.about-main .container {
+  max-width: var(--max-width);
+  margin: clamp(32px, 6vw, 56px) auto;
+  padding-inline: clamp(16px, 4vw, 24px);
+  width: 100%;
+}
+
+/* ================================
+   Intro Section
+================================ */
+
+.intro h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0 0 12px;
   font-weight: 700;
   color: #0a2540;
 }
 
-.lead{
+.lead {
   margin: 0 0 14px;
   color: var(--muted);
   line-height: 1.6;
   font-weight: 500;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
 }
 
-.intro p{
+.intro p {
   color: var(--muted);
   line-height: 1.6;
   margin-bottom: 12px;
-  font-size: 0.98rem;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
 }
 
-.small-heading{
-  margin-top: 8px;
+.small-heading {
+  margin-top: 10px;
   font-weight: 600;
   color: #0a2540;
 }
 
+/* Lists */
 .learners-list,
-.what-we-do{
+.what-we-do {
   margin: 12px 0 18px 1.25rem;
   color: var(--muted);
   line-height: 1.6;
   list-style: disc;
 }
 
-.what-we-do-title{
-  margin-top: 20px;
-  font-size: 1.125rem;
+.what-we-do-title {
+  margin-top: 22px;
+  font-size: clamp(1.05rem, 3vw, 1.125rem);
   color: #0a2540;
   font-weight: 700;
 }
 
-/* Team section */
-.team{
+/* ================================
+   Team Section
+================================ */
+
+.team {
   margin-top: 48px;
   padding-top: 20px;
   border-top: 1px solid #f0f2f5;
 }
 
-.team-heading{
+.team-heading {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 700;
   color: #0a2540;
 }
 
-.team-subheading{
-  margin: 6px 0 18px;
+.team-subheading {
+  margin: 6px 0 20px;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
+/* ================================
+   Responsive Grid
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(14px, 3vw, 20px);
 /* Grid for core team and advisors - 4 per row */
 .team-grid{
   display: grid;
@@ -104,35 +132,46 @@
   align-items: start;
 }
 
-/* Card */
-.team-card{
-  background: #fff;
+/* ================================
+   Team Card
+================================ */
+
+.team-card {
+  background: #ffffff;
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 18px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 6px 18px rgba(10,37,64,0.04);
-  transition: transform .18s ease, box-shadow .18s ease;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(10, 37, 64, 0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.team-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(10,37,64,0.08);
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(10, 37, 64, 0.08);
 }
 
-/* Circular avatar */
-.avatar{
-  width: 112px;
-  height: 112px;
+/* ================================
+   Avatar
+================================ */
+
+.avatar {
+  width: clamp(80px, 18vw, 112px);
+  height: clamp(80px, 18vw, 112px);
   border-radius: 50%;
   object-fit: cover;
   display: block;
   margin-bottom: 12px;
-  border: 2px solid rgba(16,132,195,0.12);
+  border: 2px solid rgba(16, 132, 195, 0.12);
 }
 
+/* ================================
+   Text
+
+.member-name {
 /* Rectangular avatar for core team */
 .avatar-rect{
   width: 140px;
@@ -149,29 +188,53 @@
   font-weight: 700;
   color: #0a2540;
   margin: 6px 0 4px;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  word-break: break-word;
 }
 
-.member-role{
+.member-role {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   margin-bottom: 10px;
+  word-break: break-word;
 }
 
-/* social link */
-.social-link{
+/* ================================
+   Social Icon
+================================ */
+
+.social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   background: var(--primary);
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.social-link:hover {
+  background: #0c6fa5;
+  transform: scale(1.05);
+}
+
+/* ================================
+   Mobile Tweaks
+
+@media (max-width: 480px) {
+  .team-subheading {
+    display: none;
+  }
+
+  .learners-list,
+  .what-we-do {
+    margin-left: 1rem;
+  }
+}
 /* Responsive */
 @media (max-width: 1200px){
   .team-grid{ grid-template-columns: repeat(3, 1fr); }
