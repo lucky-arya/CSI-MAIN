@@ -16,14 +16,15 @@
 }
 
 .header-container {
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 70px;
 }
 
 .logo img {
-  height: 55px;
+  height: 50px;
   width: auto;
   display: block;
 }
@@ -258,15 +259,16 @@
 }
 
 .csi-component-header-container {
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 70px;
 }
 
 .csi-component-logo img,
 .csi-component-logo-img {
-  height: 55px;
+  height: 50px;
   width: auto;
   display: block;
 }
