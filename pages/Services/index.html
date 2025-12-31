@@ -8,6 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+<!-- Add Component CSS -->
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="../../css/header.css">
+<link rel="stylesheet" href="../../css/footer.css">
+
 <style>
 * {
   margin: 0;
@@ -21,22 +26,28 @@ body {
   color: #0a2540;
 }
 
+/* Main wrapper to account for fixed header */
+.services-main {
+  margin-top: 73px;
+  padding-top: 60px;
+}
+
 /* HEADER */
-header {
+.page-header {
   text-align: center;
   background: #ffffff;
   padding: 60px 20px 40px;
   margin-bottom: 20px;
 }
 
-header h1 {
+.page-header h1 {
   font-size: 2.5rem;
   color: #0a2540;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-header p {
+.page-header p {
   font-size: 1.1rem;
   color: #6c757d;
   font-weight: 400;
@@ -252,11 +263,11 @@ header p {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  header h1 {
+  .page-header h1 {
     font-size: 2rem;
   }
 
-  header p {
+  .page-header p {
     font-size: 1rem;
   }
 
@@ -282,11 +293,11 @@ header p {
 }
 
 @media (max-width: 480px) {
-  header {
+  .page-header {
     padding: 40px 20px 30px;
   }
 
-  header h1 {
+  .page-header h1 {
     font-size: 1.75rem;
   }
 
@@ -303,193 +314,205 @@ header p {
 
 <body>
 
-<header>
-  <h1>Our Services</h1>
-  <p>Professional Cybersecurity Training & Defence Solutions</p>
-</header>
+<!-- Header Component -->
+<div id="header-component"></div>
 
-<section class="services-description">
-  <p>
-    At Cyber Secured India, we provide a comprehensive range of cybersecurity services and training programs designed to empower organizations, educators, and individuals.
-  </p>
-</section>
+<!-- Main Content -->
+<main class="services-main">
 
-<section class="services-wrapper">
-<div class="services-grid">
+  <header class="page-header">
+    <h1>Our Services</h1>
+    <p>Professional Cybersecurity Training & Defence Solutions</p>
+  </header>
 
-  <div class="service-card" data-animation="fadeUp">
-    <i class="fa fa-automobile"></i>
-    <div>
-      <h3>Law Enforcement</h3>
-      <span>Cybercrime investigation expertise</span>
-      <p>Specialized cybercrime investigation and digital forensics training for officers.</p>
-      <button onclick="openModal('law')">Read More</button>
+  <section class="services-description">
+    <p>
+      At Cyber Secured India, we provide a comprehensive range of cybersecurity services and training programs designed to empower organizations, educators, and individuals.
+    </p>
+  </section>
+
+  <section class="services-wrapper">
+    <div class="services-grid">
+
+      <div class="service-card" data-animation="fadeUp">
+        <i class="fa fa-automobile"></i>
+        <div>
+          <h3>Law Enforcement</h3>
+          <span>Cybercrime investigation expertise</span>
+          <p>Specialized cybercrime investigation and digital forensics training for officers.</p>
+          <button onclick="openModal('law')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeLeft">
+        <i class="fas fa-shield-alt"></i>
+        <div>
+          <h3>Defence Training</h3>
+          <span>Strategic cyber warfare programs</span>
+          <p>Advanced cyber warfare, defensive strategies and national security-focused programs.</p>
+          <button onclick="openModal('defence')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeRight">
+        <i class="fas fa-building"></i>
+        <div>
+          <h3>Corporate Training</h3>
+          <span>Cyber awareness & resilience building</span>
+          <p>Customized cybersecurity awareness and technical training for modern organizations.</p>
+          <button onclick="openModal('corporate')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeDown">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <div>
+          <h3>Faculty Development</h3>
+          <span>Empowering educators with cyber excellence</span>
+          <p>Advanced cybersecurity programs designed to empower educators with modern cyber skills.</p>
+          <button onclick="openModal('faculty')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="zoomIn">
+        <i class="fas fa-user-graduate"></i>
+        <div>
+          <h3>Student Bootcamps</h3>
+          <span>Industry-ready cyber skill programs</span>
+          <p>Hands-on bootcamps focused on ethical hacking, forensics and real-world cyber labs.</p>
+          <button onclick="openModal('student')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeUp">
+        <i class="fas fa-hand-sparkles"></i>
+        <div>
+          <h3>Cyber Hygiene</h3>
+          <span>Essential Cyber Safety Practices</span>
+          <p>Awareness training on phishing, password management, and safe browsing.</p>
+          <button onclick="openModal('cyber_hygiene')">Read More</button>
+        </div>
+      </div>
+
+      <div class="section-separator">
+        <i class="fas fa-user-shield"></i>
+      </div>
+
+      <div class="service-card" data-animation="fadeLeft">
+        <i class="fas fa-robot"></i>
+        <div>
+          <h3>Cyber Crime Chatbot</h3>
+          <span>24/7 Digital Incident Support</span>
+          <p>Automated fraud triage, evidence collection, and legal consultation support.</p>
+          <button onclick="openModal('helpline_chatbot')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeRight">
+        <i class="fas fa-laptop-code"></i>
+        <div>
+          <h3>Web App VAPT</h3>
+          <span>Securing Web Applications</span>
+          <p>Threat modeling and dynamic analysis to uncover logic flaws and vulnerabilities.</p>
+          <button onclick="openModal('web_vapt')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeDown">
+        <i class="fas fa-mobile-alt"></i>
+        <div>
+          <h3>Mobile App VAPT</h3>
+          <span>Mobile Security Excellence</span>
+          <p>Static and dynamic analysis for root detection and API traffic monitoring.</p>
+          <button onclick="openModal('mobile_vapt')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="zoomIn">
+        <i class="fas fa-search-plus"></i>
+        <div>
+          <h3>VA & PT</h3>
+          <span>Vulnerability Assessment</span>
+          <p>Internal and external network scanning to identify and assess security gaps.</p>
+          <button onclick="openModal('vapt_general')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeUp">
+        <i class="fas fa-user-ninja"></i>
+        <div>
+          <h3>Red Teaming</h3>
+          <span>Adversarial Simulation</span>
+          <p>Live system exploitation and red-blue team drills for true resilience testing.</p>
+          <button onclick="openModal('red_teaming')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeLeft">
+        <i class="fas fa-fingerprint"></i>
+        <div>
+          <h3>Digital Forensics</h3>
+          <span>Investigation & Analysis</span>
+          <p>Comprehensive imaging and analysis of digital artifacts for deep investigations.</p>
+          <button onclick="openModal('digital_forensics')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeRight">
+        <i class="fas fa-file-signature"></i>
+        <div>
+          <h3>Forensics Readiness</h3>
+          <span>Incident Preparedness</span>
+          <p>Designing protocols and log strategies to ensure legal and technical readiness.</p>
+          <button onclick="openModal('forensics_readiness')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeDown">
+        <i class="fas fa-clipboard-check"></i>
+        <div>
+          <h3>IT GRC</h3>
+          <span>Governance & Compliance</span>
+          <p>Ensuring ISO compliance and privacy guidelines through rigorous auditing.</p>
+          <button onclick="openModal('it_grc')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="zoomIn">
+        <i class="fa fa-cloud-download"></i>
+        <div>
+          <h3>Cloud DevSecOps</h3>
+          <span>Security Integrated CI/CD</span>
+          <p>Securing containers, Kubernetes, and pipelines through automated testing.</p>
+          <button onclick="openModal('devsecops')">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card" data-animation="fadeUp">
+        <i class="fas fa-satellite-dish"></i>
+        <div>
+          <h3>SOC IR w/XDR</h3>
+          <span>Response & Threat Hunting</span>
+          <p>Advanced SIEM/EDR capabilities for proactive threat handling.</p>
+          <button onclick="openModal('soc_ir')">Read More</button>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <div class="service-card" data-animation="fadeLeft">
-    <i class="fas fa-shield-alt"></i>
-    <div>
-      <h3>Defence Training</h3>
-      <span>Strategic cyber warfare programs</span>
-      <p>Advanced cyber warfare, defensive strategies and national security-focused programs.</p>
-      <button onclick="openModal('defence')">Read More</button>
-    </div>
-  </div>
+</main>
 
-  <div class="service-card" data-animation="fadeRight">
-    <i class="fas fa-building"></i>
-    <div>
-      <h3>Corporate Training</h3>
-      <span>Cyber awareness & resilience building</span>
-      <p>Customized cybersecurity awareness and technical training for modern organizations.</p>
-      <button onclick="openModal('corporate')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeDown">
-    <i class="fas fa-chalkboard-teacher"></i>
-    <div>
-      <h3>Faculty Development</h3>
-      <span>Empowering educators with cyber excellence</span>
-      <p>Advanced cybersecurity programs designed to empower educators with modern cyber skills.</p>
-      <button onclick="openModal('faculty')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="zoomIn">
-    <i class="fas fa-user-graduate"></i>
-    <div>
-      <h3>Student Bootcamps</h3>
-      <span>Industry-ready cyber skill programs</span>
-      <p>Hands-on bootcamps focused on ethical hacking, forensics and real-world cyber labs.</p>
-      <button onclick="openModal('student')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeUp">
-    <i class="fas fa-hand-sparkles"></i>
-    <div>
-      <h3>Cyber Hygiene</h3>
-      <span>Essential Cyber Safety Practices</span>
-      <p>Awareness training on phishing, password management, and safe browsing.</p>
-      <button onclick="openModal('cyber_hygiene')">Read More</button>
-    </div>
-  </div>
-
-  <div class="section-separator">
-    <i class="fas fa-user-shield"></i>
-  </div>
-
-  <div class="service-card" data-animation="fadeLeft">
-    <i class="fas fa-robot"></i>
-    <div>
-      <h3>Cyber Crime Chatbot</h3>
-      <span>24/7 Digital Incident Support</span>
-      <p>Automated fraud triage, evidence collection, and legal consultation support.</p>
-      <button onclick="openModal('helpline_chatbot')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeRight">
-    <i class="fas fa-laptop-code"></i>
-    <div>
-      <h3>Web App VAPT</h3>
-      <span>Securing Web Applications</span>
-      <p>Threat modeling and dynamic analysis to uncover logic flaws and vulnerabilities.</p>
-      <button onclick="openModal('web_vapt')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeDown">
-    <i class="fas fa-mobile-alt"></i>
-    <div>
-      <h3>Mobile App VAPT</h3>
-      <span>Mobile Security Excellence</span>
-      <p>Static and dynamic analysis for root detection and API traffic monitoring.</p>
-      <button onclick="openModal('mobile_vapt')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="zoomIn">
-    <i class="fas fa-search-plus"></i>
-    <div>
-      <h3>VA & PT</h3>
-      <span>Vulnerability Assessment</span>
-      <p>Internal and external network scanning to identify and assess security gaps.</p>
-      <button onclick="openModal('vapt_general')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeUp">
-    <i class="fas fa-user-ninja"></i>
-    <div>
-      <h3>Red Teaming</h3>
-      <span>Adversarial Simulation</span>
-      <p>Live system exploitation and red-blue team drills for true resilience testing.</p>
-      <button onclick="openModal('red_teaming')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeLeft">
-    <i class="fas fa-fingerprint"></i>
-    <div>
-      <h3>Digital Forensics</h3>
-      <span>Investigation & Analysis</span>
-      <p>Comprehensive imaging and analysis of digital artifacts for deep investigations.</p>
-      <button onclick="openModal('digital_forensics')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeRight">
-    <i class="fas fa-file-signature"></i>
-    <div>
-      <h3>Forensics Readiness</h3>
-      <span>Incident Preparedness</span>
-      <p>Designing protocols and log strategies to ensure legal and technical readiness.</p>
-      <button onclick="openModal('forensics_readiness')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeDown">
-    <i class="fas fa-clipboard-check"></i>
-    <div>
-      <h3>IT GRC</h3>
-      <span>Governance & Compliance</span>
-      <p>Ensuring ISO compliance and privacy guidelines through rigorous auditing.</p>
-      <button onclick="openModal('it_grc')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="zoomIn">
-    <i class="fa fa-cloud-download"></i>
-    <div>
-      <h3>Cloud DevSecOps</h3>
-      <span>Security Integrated CI/CD</span>
-      <p>Securing containers, Kubernetes, and pipelines through automated testing.</p>
-      <button onclick="openModal('devsecops')">Read More</button>
-    </div>
-  </div>
-
-  <div class="service-card" data-animation="fadeUp">
-    <i class="fas fa-satellite-dish"></i>
-    <div>
-      <h3>SOC IR w/XDR</h3>
-      <span>Response & Threat Hunting</span>
-      <p>Advanced SIEM/EDR capabilities for proactive threat handling.</p>
-      <button onclick="openModal('soc_ir')">Read More</button>
-    </div>
-  </div>
-
-</div>
-</section>
-
+<!-- Modal -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <div id="modal-body"></div>
   </div>
 </div>
+
+<!-- Footer Component -->
+<div id="footer-component"></div>
 
 <script>
 const data = {
@@ -538,6 +561,10 @@ function animateOnScroll() {
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 </script>
+
+<!-- Component Loader Scripts -->
+<script src="../../components/component-loader.js"></script>
+<script src="../../script.js"></script>
 
 </body>
 </html>
