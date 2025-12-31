@@ -144,3 +144,75 @@
     gap: 1rem;
   }
 }
+
+/* Simple Dropdown Styles - Add to end of header.css */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 0;
+  z-index: 1000;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.dropdown-content a {
+  color: var(--dark);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  margin: 0 !important;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(16, 132, 195, 0.1);
+  color: var(--primary);
+}
+
+/* Show dropdown on hover - Desktop only */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobile Dropdown Styles */
+@media (max-width: 900px) {
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown > a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+  }
+
+  .dropdown.mobile-open .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    margin: 0.25rem 0 !important;
+  }
+}
