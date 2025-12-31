@@ -36,7 +36,7 @@
 
 .nav-links a,
 .nav-links .dropdown-toggle {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   text-decoration: none;
   color: var(--dark);
   font-weight: 500;
@@ -68,7 +68,11 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 1.7rem;
-  min-width: 200px;
+  width: max-content;
+  /* Center below the button */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  right: auto !important;
 }
 
 .nav-dropdown .dropdown-item {

@@ -4,49 +4,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadTeamData() {
   try {
-    const res = await fetch('team-data.json');
-    if (!res.ok) throw new Error('Could not fetch team-data.json');
-    const data = await res.json();
+    // Load core team data
+    const coreTeamRes = await fetch('core-team.json');
+    if (!coreTeamRes.ok) throw new Error('Could not fetch core-team.json');
+    const coreTeamData = await coreTeamRes.json();
     
-    const members = [];
-    if (data.founder) members.push({
-      name: data.founder.name,
-      role: data.founder.role,
-      image: data.founder.image,
-      social: data.founder.social || {}
-    });
-    if (Array.isArray(data.team)) members.push(...data.team);
-
-    renderTeamGrid(members);
-
-    // Render speakers if present
-    if (Array.isArray(data.speakers) && data.speakers.length > 0) {
-      renderSpeakers(data.speakers);
-      const speakersSection = document.getElementById('speakers-section');
-      if (speakersSection) speakersSection.style.display = '';
+    // Load speakers data
+    const speakersRes = await fetch('speakers.json');
+    if (!speakersRes.ok) throw new Error('Could not fetch speakers.json');
+    const speakersData = await speakersRes.json();
+    
+    // Render Core Team (founder + core team members)
+    const coreTeamMembers = [];
+    if (coreTeamData.founder) {
+      coreTeamMembers.push({
+        id: coreTeamData.founder.id,
+        name: coreTeamData.founder.name,
+        role: coreTeamData.founder.role,
+        image: coreTeamData.founder.image,
+        social: coreTeamData.founder.social || {}
+      });
     }
+    if (Array.isArray(coreTeamData.coreTeam)) {
+      coreTeamMembers.push(...coreTeamData.coreTeam);
+    }
+    renderGrid('core-team-grid', coreTeamMembers, true); // Pass true for rectangular
+    
+    // Render Advisors
+    if (Array.isArray(coreTeamData.advisors)) {
+      renderGrid('advisors-grid', coreTeamData.advisors, false); // Pass false for circular
+    }
+    
+    // Render Speakers
+    if (Array.isArray(speakersData.speakers)) {
+      renderGrid('speakers-grid', speakersData.speakers, false); // Pass false for circular
+    }
+    
   } catch (err) {
     console.error('Error loading team data:', err);
-    const grid = document.getElementById('team-grid');
-    if (grid) grid.innerHTML = '<p style="color:#6c757d">Failed to load team members.</p>';
+    showError('core-team-grid');
+    showError('advisors-grid');
+    showError('speakers-grid');
   }
 }
 
-function renderTeamGrid(members) {
-  const grid = document.getElementById('team-grid');
+function renderGrid(gridId, members, isRectangular = false) {
+  const grid = document.getElementById(gridId);
   if (!grid) return;
+
+  const avatarClass = isRectangular ? 'avatar-rect' : 'avatar';
 
   const cards = members.map(member => {
     const linkedin = member.social && member.social.linkedin ? member.social.linkedin : '';
     const src = member.image || 'https://via.placeholder.com/320x320?text=CSI';
-
-  
     const safeName = escapeHtml(member.name || '');
     const safeRole = escapeHtml(member.role || '');
 
     return `
       <div class="team-card" role="article">
-        <img class="avatar" src="${src}" alt="${safeName}" loading="lazy" />
+        <img class="${avatarClass}" src="${src}" alt="${safeName}" loading="lazy" />
         <div class="member-name">${safeName}</div>
         <div class="member-role">${safeRole}</div>
         <div>
@@ -59,29 +75,11 @@ function renderTeamGrid(members) {
   grid.innerHTML = cards;
 }
 
-function renderSpeakers(speakers) {
-  const grid = document.getElementById('speakers-grid');
-  if (!grid) return;
-
-  const cards = speakers.map(speaker => {
-    const linkedin = speaker.social && speaker.social.linkedin ? speaker.social.linkedin : '';
-    const src = speaker.image || 'https://via.placeholder.com/320x320?text=Speaker';
-    const safeName = escapeHtml(speaker.name || '');
-    const safeRole = escapeHtml(speaker.role || 'Speaker');
-
-    return `
-      <div class="team-card" role="article">
-        <img class="avatar" src="${src}" alt="${safeName}" loading="lazy" />
-        <div class="member-name">${safeName}</div>
-        <div class="member-role">${safeRole}</div>
-        <div>
-          ${linkedin ? `<a class="social-link" href="${linkedin}" target="_blank" rel="noopener" aria-label="${safeName} LinkedIn"><i class="fab fa-linkedin-in"></i></a>` : ''}
-        </div>
-      </div>
-    `;
-  }).join('');
-
-  grid.innerHTML = cards;
+function showError(gridId) {
+  const grid = document.getElementById(gridId);
+  if (grid && !grid.innerHTML) {
+    grid.innerHTML = '<p style="color:#6c757d">Failed to load team members.</p>';
+  }
 }
 
 function escapeHtml(str) {
