@@ -1,12 +1,4 @@
-/* Gallery Page Styles */
-:root {
-  --primary: #1084c3;
-  --dark: #0a2540;
-  --light: #f8f9fb;
-  --muted: #6c757d;
-  --radius: 8px;
-  --header-height: 84px;
-}
+/* Gallery Page Styles - Header/Footer styles removed */
 
 /* Page Layout */
 .gallery-main {
