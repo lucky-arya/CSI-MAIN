@@ -1,4 +1,4 @@
-// Component Loader
+// Component Loader with Bootstrap Dropdown Support
 // This script dynamically loads header and footer components into pages
 
 (function() {
@@ -23,9 +23,10 @@
         // Fix relative paths based on current page location
         fixRelativePaths(element);
         
-        // If it's the header, reinitialize mobile menu functionality
+        // If it's the header, reinitialize mobile menu and Bootstrap dropdowns
         if (elementId === 'header-component') {
           initializeMobileMenu();
+          initializeBootstrapDropdowns();
         }
       })
       .catch(error => {
@@ -33,11 +34,90 @@
       });
   }
 
-  // Function to initialize mobile menu toggle (if needed)
+  // Function to initialize Bootstrap dropdowns after component loads
+  function initializeBootstrapDropdowns() {
+    let attempts = 0;
+    const maxAttempts = 20;
+    
+    function tryInitialize() {
+      attempts++;
+      
+      // Check if Bootstrap is loaded
+      if (typeof bootstrap !== 'undefined' && bootstrap.Dropdown) {
+        // Initialize all dropdowns
+        const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+        console.log('Found dropdown toggles:', dropdownElementList.length);
+        
+        dropdownElementList.forEach(dropdownToggleEl => {
+          // Destroy existing instance if any
+          const existingInstance = bootstrap.Dropdown.getInstance(dropdownToggleEl);
+          if (existingInstance) {
+            existingInstance.dispose();
+          }
+          
+          // Create new instance
+          new bootstrap.Dropdown(dropdownToggleEl, {
+            autoClose: true
+          });
+        });
+        
+        console.log('Bootstrap dropdowns initialized successfully!');
+        return true;
+      } else {
+        if (attempts < maxAttempts) {
+          console.log(`Bootstrap not ready yet, attempt ${attempts}/${maxAttempts}`);
+          setTimeout(tryInitialize, 100);
+        } else {
+          console.error('Bootstrap failed to load after', maxAttempts, 'attempts. Using fallback.');
+          useFallbackDropdown();
+        }
+        return false;
+      }
+    }
+    
+    // Start trying to initialize
+    setTimeout(tryInitialize, 50);
+  }
+  
+  // Fallback dropdown functionality if Bootstrap doesn't load
+  function useFallbackDropdown() {
+    console.log('Using fallback dropdown implementation');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+      const dropdown = toggle.nextElementSibling;
+      
+      if (dropdown && dropdown.classList.contains('dropdown-menu')) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Close other dropdowns
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== dropdown) {
+              menu.classList.remove('show');
+            }
+          });
+          
+          // Toggle current dropdown
+          dropdown.classList.toggle('show');
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+          if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+          }
+        });
+      }
+    });
+  }
+
+  // Function to initialize mobile menu toggle
   function initializeMobileMenu() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle, .csi-component-menu-toggle');
     const navLinks = document.querySelector('.nav-links, .csi-component-nav');
-    const navLinksList = document.querySelectorAll('.nav-links a, .csi-component-nav a');
+    const navLinksList = document.querySelectorAll('.nav-links a, .csi-component-nav a, .dropdown-item');
     const body = document.body;
     
     console.log('Initializing mobile menu...', {

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Cyber Secured India</title>
+  <meta name="description" content="Explore our journey through images - events, workshops, training sessions, and team moments.">
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="./gallery.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div id="header-component"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="gallery-main">
+    <section class="intro container">
+      <h1>Our Gallery</h1>
+      <p class="lead">
+        A visual journey through our conferences, workshops, trainings, and global initiatives.
+      </p>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="conference">Conference</button>
+        <button class="filter-btn" data-filter="ctf">CTF & Workshop</button>
+        <button class="filter-btn" data-filter="mou">MOU</button>
+        <button class="filter-btn" data-filter="meetup">Meetup</button>
+        <button class="filter-btn" data-filter="training">Training</button>
+        <button class="filter-btn" data-filter="global">Global Representation</button>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="container">
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading gallery...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Load More Button -->
+    <section class="container" style="text-align: center; margin-top: 32px;">
+      <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
+        Load More Images
+      </button>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="lightbox-prev" id="lightboxPrev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="lightbox-next" id="lightboxNext">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <img src="" alt="Gallery Image" id="lightboxImage">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer-component"></div>
+  </footer>
+
+  <script src="../../script.js"></script>
+  <script src="./gallery.js"></script>
+
+  <script src="../../components/component-loader.js"></script>
+<script src="../../script.js"></script>
+</body>
+</html>

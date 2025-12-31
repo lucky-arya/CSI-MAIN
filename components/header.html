@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header with Dropdown</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/header.css">
+
+</head>
+<body>
+
 <header class="site-header csi-component-header">
   <div class="container header-container csi-component-header-container">
     <a href="#" class="logo csi-component-logo" data-href="index.html">
@@ -14,27 +31,105 @@
       <span class="hamburger-line csi-component-hamburger-line"></span>
       <span class="hamburger-line csi-component-hamburger-line"></span>
     </button>
+
     <nav class="nav-links csi-component-nav">
-      <a href="#" data-href="index.html#hero" class="csi-component-nav-link">Home</a>
-      <a href="#" data-href="pages/About/about.html" class="csi-component-nav-link">About</a>
-      <a href="#" data-href="pages/Services/services.html" class="csi-component-nav-link">Services</a>
-      <a href="#" data-href="index.html#services" class="csi-component-nav-link">Who We Serve</a>
-      <a href="#" data-href="index.html#join" class="csi-component-nav-link">Get Involved</a>
-      <a href="#" data-href="index.html#contact" class="csi-component-nav-link">Contact</a>
+      <!-- About Dropdown -->
+      <div class="nav-dropdown dropdown">
+        <button class="dropdown-toggle csi-component-nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          About
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#" data-href="pages/About/about.html">
+              Team
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-href="pages/Publications/index.html">
+              Publications
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-href="pages/CyberforAll/index.html">
+              Cyber for All
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a href="#" data-href="pages/Services/index.html" class="csi-component-nav-link">Services</a>
+      <a href="#" data-href="pages/COE/index.html" class="csi-component-nav-link">COE</a>
+      <a href="#" data-href="pages/Internships/index.html" class="csi-component-nav-link">Internships</a>
+      <a href="#" data-href="pages/Associations/index.html" class="csi-component-nav-link">Association</a>
+      <a href="#" data-href="pages/Careers/index.html" class="csi-component-nav-link">Careers</a>
+      <a href="#" data-href="pages/Gallery/index.html" class="csi-component-nav-link">Gallery</a>
+      
+      
+      
+      
+
       <div class="social-icons csi-component-social">
-        <a href="https://instagram.com/yourprofile" target="_blank" class="csi-component-social-link"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a href="https://t.me/yourchannel" target="_blank" class="csi-component-social-link"
-          ><i class="fab fa-telegram"></i
-        ></a>
-        <a
-          href="https://linkedin.com/company/cybersecuredindia/"
-          target="_blank"
-          class="csi-component-social-link"
-          ><i class="fab fa-linkedin"></i
-        ></a>
+        <a href="https://www.instagram.com/cybersecuredindia/" target="_blank" class="csi-component-social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://t.me/cybersecuredindia" target="_blank" class="csi-component-social-link" aria-label="Telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://linkedin.com/company/cybersecuredindia/" target="_blank" class="csi-component-social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
       </div>
     </nav>
   </div>
 </header>
+
+<!-- Bootstrap JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    
+    if (mobileMenuToggle && navLinks) {
+      mobileMenuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        navLinks.classList.toggle('open');
+        body.classList.toggle('menu-open');
+      });
+      
+      // Close menu when clicking a link
+      const navLinksList = document.querySelectorAll('.nav-links a, .dropdown-item');
+      navLinksList.forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          body.classList.remove('menu-open');
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          body.classList.remove('menu-open');
+        }
+      });
+    }
+
+    // Scroll effect for header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.site-header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

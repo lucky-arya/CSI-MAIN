@@ -1,0 +1,309 @@
+/* Centers of Excellence Page Styles - Header/Footer styles removed */
+
+/* Main Content */
+.centers-page {
+  margin-top: 73px;
+  padding: 4rem 0;
+  min-height: 70vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.page-header .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Info Grid (Objectives & Benefits) */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+/* Read More Functionality */
+.info-list.collapsed li:nth-child(n+4) {
+  display: none;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.read-more-btn:hover {
+  background: #0a7db8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 132, 195, 0.3);
+}
+
+.read-more-btn i {
+  transition: transform 0.3s ease;
+}
+
+.read-more-btn.expanded i {
+  transform: rotate(180deg);
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.info-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.info-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.info-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(16, 132, 195, 0.2);
+  transform: translateY(-4px);
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.info-header i {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+
+.info-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list i {
+  color: var(--primary);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.info-list span {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Institutes Section */
+.institutes-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.institutes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* Institute Card */
+.institute-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.institute-card:nth-child(1) { animation-delay: 0.1s; }
+.institute-card:nth-child(2) { animation-delay: 0.2s; }
+.institute-card:nth-child(3) { animation-delay: 0.3s; }
+.institute-card:nth-child(4) { animation-delay: 0.4s; }
+
+.institute-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: rgba(16, 132, 195, 0.3);
+}
+
+/* Institute Logo */
+.institute-logo {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.institute-logo img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.institute-card:hover .institute-logo img {
+  transform: scale(1.05);
+}
+
+/* Institute Content */
+.institute-content {
+  text-align: center;
+}
+
+.institute-content h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.institute-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.institute-link:hover {
+  color: #0a7db8;
+  gap: 0.6rem;
+}
+
+.institute-link i {
+  font-size: 0.8rem;
+}
+
+.institute-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .institutes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .institutes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .institute-card {
+    padding: 1.5rem;
+  }
+
+  .info-header h2 {
+    font-size: 1.25rem;
+  }
+}
