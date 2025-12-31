@@ -26,7 +26,7 @@
 ================================ */
 
 .about-main {
-  padding: clamp(24px, 5vw, 56px) 0;
+  padding: clamp(90px, 15vw, 90px) clamp(16px, 3vw, 24px) clamp(24px, 5vw, 56px);
   background: var(--bg);
   color: #0a2540;
 }
@@ -250,9 +250,10 @@
 }
 
 @media (max-width: 480px){
+  .about-main{ padding: 90px 12px 24px; }
+  .about-main .container{ padding-inline: 12px; }
   .team-grid{ grid-template-columns: 1fr; }
   .speakers-grid{ grid-template-columns: 1fr; }
-  .container{ padding-left: 16px; padding-right: 16px; }
   .team-card{ padding: 14px; }
   .avatar{ width: 88px; height: 88px; }
   .avatar-rect{ width: 88px; height: 110px; }

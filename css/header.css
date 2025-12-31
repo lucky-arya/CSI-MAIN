@@ -16,15 +16,15 @@
 }
 
 .header-container {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 70px;
+  min-height: 100px;
 }
 
 .logo img {
-  height: 50px;
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -68,7 +68,7 @@
   border: 1px solid rgba(16, 132, 195, 0.2);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 1.7rem;
+  margin-top: 0.5rem;
   width: max-content;
   /* Center below the button */
   left: 50% !important;
@@ -115,7 +115,7 @@
 }
 
 /* Mobile Navigation */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .nav-links {
     position: fixed;
     top: 0;
@@ -263,12 +263,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 70px;
+  min-height: 60px;
 }
 
 .csi-component-logo img,
 .csi-component-logo-img {
-  height: 50px;
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -315,7 +315,7 @@
   color: var(--primary);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .csi-component-nav {
     position: fixed;
     top: 0;
