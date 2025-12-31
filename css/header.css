@@ -68,7 +68,7 @@
   border: 1px solid rgba(16, 132, 195, 0.2);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 0.5rem;
+  margin-top: 0.5rem !important;
   width: max-content;
   /* Center below the button */
   left: 50% !important;
