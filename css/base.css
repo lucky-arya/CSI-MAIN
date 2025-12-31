@@ -1,16 +1,36 @@
-/* Base Styles & CSS Variables */
+/* Base Styles & CSS Variables - Centralized */
 :root {
+  /* Primary Colors */
   --primary: #1084c3;
-  --dark: #000;
+  --primary-color: #1084c3;
+  --secondary-color: #0a2540;
+  --accent-color: #ffd700;
+  
+  /* Basic Colors */
+  --dark: #0a2540;
   --light: #fff;
+  --bg: #ffffff;
+  
+  /* Grey Scale */
   --grey-100: #f8fafc;
   --grey-200: #e2e8f0;
   --grey-300: #cbd5e1;
-  --primary-color: #1084c3;
-  --secondary-color: #0a2540;
+  
+  /* Text Colors */
   --text-light: #fff;
   --text-dark: #0a2540;
-  --accent-color: #ffd700;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  
+  /* UI Colors */
+  --border-color: #e2e8f0;
+  --muted: #6c757d;
+  
+  /* Layout Variables */
+  --page-padding: 48px;
+  --max-width: 1100px;
+  --radius: 8px;
+  --header-height: 84px;
 }
 
 html {
